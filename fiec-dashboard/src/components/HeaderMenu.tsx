@@ -56,19 +56,19 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
         >
           {items.map((item, index) => (
             <div key={index} className="mb-2">
-              <div className="flex items-center cursor-pointer">
+              <div className="flex items-center bg-gray-100">
                 <input
                   type="radio"
                   id={`item-${index}`}
                   name="menuItem"
-                  className=""
+                  className="cursor-pointer"
                   checked={selectedItem === item}
                   onChange={() => handleItemClick(item)}
                 />
                 <label
-                  className={`flex items-center ${
-                    selectedItem === item ? 'text-black' : 'text-gray-400'
-                  }`}
+                  htmlFor={`item-${index}`}
+                  className={`flex items-center  cursor-pointer ${selectedItem === item ? 'text-black' : 'text-gray-400'
+                    }`}
                 >
                   <span className="px-4">{item.label}</span>
                 </label>
@@ -76,24 +76,22 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
               {item.subItems && (
                 <div className="ml-6 mt-1 ">
                   {item.subItems.map((subItem, subIndex) => (
-                    <div
-                      key={subIndex}
-                      className="flex items-center"
-                    >
+                    <div key={subIndex} className="flex items-center mb-1 bg-gray-100">
                       <input
                         type="radio"
-                        id={`subItem-${subIndex}`}
+                        id={`subItem-${index}-${subIndex}`}
                         name={`subItem-${index}`}
                         className="cursor-pointer"
                         checked={selectedItem === subItem}
                         onChange={() => handleItemClick(subItem)}
                       />
                       <label
-                        className={`flex items-center ${
-                          selectedItem === subItem ? 'text-black' : 'text-gray-400'
-                        }`}
+                        htmlFor={`subItem-${index}-${subIndex}`}
+                        className={`flex items-center  cursor-pointer ${selectedItem === subItem ? 'text-black' : 'text-gray-400'
+                          }`}
+                        onClick={() => handleItemClick(subItem)}
                       >
-                        <span className = "px-4">{subItem.label}</span>
+                        <span className="px-4">{subItem.label}</span>
                       </label>
                     </div>
                   ))}
