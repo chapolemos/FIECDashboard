@@ -1,9 +1,10 @@
 import React from 'react';
 import { colorTheme } from '../theme';
 import { abdi, fiec, indice22, obs, p2i } from '../assets/logos/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCodePullRequest, faChartSimple, faFileLines } from '@fortawesome/free-solid-svg-icons';
 
-
-const Sidebar = ({activeTab, setActiveTab}) => {
+const Sidebar = ({ activeTab, setActiveTab }) => {
   const { colors } = colorTheme;
 
   return (
@@ -13,39 +14,48 @@ const Sidebar = ({activeTab, setActiveTab}) => {
       </div>
 
       <div id="navigationTabs" className="flex flex-col items-end mb-auto">
-        <button 
-          title = "Clique aqui para navegar pra aba de Ranking."
-          aria-label='Navegar para a aba de ranking.'
-          className="px-4 py-2 rounded-r-none rounded-l-full mb-2 w-11/12"
-          style={{ 
+        <button
+          title="Navegar para a aba de Ranking"
+          aria-label="Navegar para a aba de ranking."
+          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          style={{
             color: activeTab === 'ranking' ? colors.sidebar : colors.text,
             backgroundColor: activeTab === 'ranking' ? colors.text : colors.sidebar,
-            fontWeight:'bold',
+            fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('ranking')}
-        >Ranking</button>
-        <button 
-          title = "Clique aqui para navegar pra aba de Perfil."
-          aria-label='Navegar para a aba de perfil.'
-          className="px-4 py-2 rounded-r-none rounded-l-full mb-2 w-11/12"
-          style={{ 
+        >
+          <FontAwesomeIcon icon={faChartSimple} className="mr-2" />
+          <span>Ranking</span>
+        </button>
+        <button
+          title="Navegar para a aba de Perfil"
+          aria-label="Navegar para a aba de perfil."
+          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          style={{
             color: activeTab === 'perfil' ? colors.sidebar : colors.text,
             backgroundColor: activeTab === 'perfil' ? colors.text : colors.sidebar,
-            fontWeight:'bold',
+            fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('perfil')}
-        >Perfil</button>
+        > 
+          <FontAwesomeIcon icon={faFileLines} className="mr-2" />
+          <span>Perfil</span>
+        </button>
         <button
-          title = "Clique aqui para navegar pra aba de Comparação."
-          aria-label='Navegar para a aba de comparação.'
-          className="px-4 py-2 rounded-r-none rounded-l-full mb-2 w-11/12"
-          style={{ 
+          title="Navegar para a aba de Comparação"
+          aria-label="Navegar para a aba de comparação."
+          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          style={{
             color: activeTab === 'compare' ? colors.sidebar : colors.text,
             backgroundColor: activeTab === 'compare' ? colors.text : colors.sidebar,
-            fontWeight:'bold',
+            fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('compare')}
-        >Compare</button>
+        >
+          <FontAwesomeIcon icon={faCodePullRequest} className="mr-2" />
+          <span>Compare</span>
+        </button>
       </div>
 
       <div id="sidebarSubsection" className="flex flex-col justify-end">

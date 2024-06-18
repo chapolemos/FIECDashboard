@@ -5,7 +5,7 @@ import {
 import Sidebar from './components/Sidebar';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState(''); 
+  const [activeTab, setActiveTab] = useState('ranking'); 
 
 
   return (
