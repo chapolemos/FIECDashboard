@@ -9,6 +9,7 @@ import {
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { estadosRanking } from '../data/estadosRanking';
 const brazilStatesData = [
   { state: 'Acre', value: 10 },
   { state: 'Alagoas', value: 20 },
@@ -60,11 +61,13 @@ const Ranking = () => {
         />
 
       </Header>
+      <div className="flex items-center justify-center">
+        <h1>Índice Fiec</h1>
+      </div>
       <div className="flex flex-row">
         <BrazilMap></BrazilMap>
         <div>
-      <h1>Gráfico de Barras dos Estados Brasileiros</h1>
-      <BarChart data={brazilStatesData} />
+      <BarChart data={estadosRanking} />
     </div>
       </div>
       
