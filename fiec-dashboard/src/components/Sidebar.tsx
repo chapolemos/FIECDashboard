@@ -58,7 +58,10 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         </button>
       </div>
 
-      <div id="sidebarSubsection" className="flex flex-col justify-end">
+      <div id="sidebarSubsection" 
+        className="flex flex-col justify-end rounded-2xl m-2"
+        style={{backgroundColor: colors.sidebarLight}}
+      >
         <img src={p2i} alt="Logo Programa de Inovação Industrial" className="mb-2" />
         <img src={obs} alt="Logo do Observatório da Indústria do Ceará" className="mb-2" />
         <img src={fiec} alt="Logo do FIEC" className="mb-2" />
