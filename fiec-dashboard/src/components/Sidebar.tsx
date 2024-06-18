@@ -1,10 +1,13 @@
 import React from 'react';
+import { colorTheme } from '../theme';
 
 const Sidebar = () => {
+  const { colors } = colorTheme;
+
   return (
-      <div className="w-48 bg-gray-800 h-screen">
-        <p className="text-white text-center pt-4">Sidebar</p>
-      </div>   
+    <div style={{ backgroundColor: colors.sidebar }} className="w-48 h-screen">
+      <p style={{ color: colors.text }} className="text-center pt-4">Sidebar</p>
+    </div>
   );
 };
 
