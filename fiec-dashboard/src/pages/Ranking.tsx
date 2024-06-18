@@ -1,6 +1,16 @@
 import React from 'react';
-import Header from '../components/Header';
+import {
+    Header,
+    HeaderCard,
+    HeaderMenu
+} from '../components';
+import { colorTheme } from '../theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+
 const Ranking = () => {
+  const { colors } = colorTheme;
+  
   return (
     <div>
       <Header></Header>

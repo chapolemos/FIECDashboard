@@ -3,6 +3,7 @@
       sidebar: '#1a428a',
       text: '#ffffff',
       sidebarLight: '#1d4997',
+      backgroundLight: '#f4f6ff',
       topButton:'#2f80ed',
       topButton2: '#7c25d1',
       inovacao: '#00408d',
