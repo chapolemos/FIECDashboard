@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const HeaderMenu = ({ label, color, backgroundColor }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <div 
-      className="px-4 py-2 w-auto mx-8 min-w-64 h-10 rounded-full flex items-center justify-center"
-      style={{ color: color, backgroundColor: backgroundColor}}
+      className="flex justify-center"
     >
-      <div className="flex items-center justify-center">
+      <button 
+        onClick={toggleDropdown}
+        className="px-4 py-2 w-auto mx-8 min-w-64 h-10 rounded-full flex items-center justify-center focus:outline-none"
+        style={{ color: color, backgroundColor: backgroundColor }}
+      >
         <span>
           {label}
         </span>
-      </div>
+      </button>
+
+      {dropdownOpen && (
+        <div 
+          className="absolute bg-white min-w-64 shadow-md rounded-lg mt-12 py-2 px-4"
+          style={{ color: '#000000', backgroundColor: '#FFFFFF' }}
+        >
+          <p>Opção 1</p>
+          <p>Opção 2</p>
+          <p>Opção 3</p>
+        </div>
+      )}
     </div>
   );
 };

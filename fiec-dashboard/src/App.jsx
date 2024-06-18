@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from './components/';
+import { Sidebar } from './components'
 import { Compare, Perfil, Ranking } from './pages';
 
 const App = () => {

@@ -32,7 +32,7 @@ const Compare = () => {
 
             </Header>
             <p>
-                Aba de perfil
+                Aba de compare
             </p>
         </div>
     );
