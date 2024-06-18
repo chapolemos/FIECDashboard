@@ -21,15 +21,11 @@ const Perfil = () => {
                     backgroundColor={colors.backgroundLight}
                 />
                 <HeaderMenu
-                    label="Selecione a primeira região"
-                    color={colors.sidebar}
-                    backgroundColor={colors.backgroundLight}
+                    label="Região"
+                    color={colors.text}
+                    backgroundColor={colors.topButton}
                 />
-                <HeaderMenu
-                    label="Selecione a segunda região"
-                    color={colors.sidebar}
-                    backgroundColor={colors.backgroundLight}
-                />
+
 
             </Header>
             <p>
