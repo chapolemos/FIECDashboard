@@ -1,10 +1,15 @@
+import React from 'react';
+import Header from '../components/Header';
 
 const Perfil = () => {
 
     return (
-        <p>
-            Aba de perfil
-        </p>
+        <div>
+            <Header></Header>
+            <p>
+                Aba de perfil
+            </p>
+        </div>
     )
 
 }
