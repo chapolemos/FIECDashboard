@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Header,
   HeaderCard,
-  HeaderMenu
+  HeaderMenu,
+  BrasilMapa
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -53,9 +54,10 @@ const Ranking = () => {
         />
 
       </Header>
-      <p>
-        Aba de perfil
-      </p>
+      <div className="flex flex-row">
+        <BrasilMapa></BrasilMapa>
+      </div>
+      
     </>
   );
 };

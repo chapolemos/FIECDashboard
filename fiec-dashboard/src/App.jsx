@@ -9,7 +9,7 @@ const App = () => {
     <div className="flex h-screen w-screen bg-white">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="flex-1 flex">
-        <div className="flex-1 bg-black overflow-auto">
+        <div className="flex-1 bg-gray-400 overflow-auto">
           {activeTab === 'ranking' && <Ranking />}
           {activeTab === 'perfil' && <Perfil />}
           {activeTab === 'compare' && <Compare />}
