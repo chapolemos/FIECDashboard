@@ -4,6 +4,8 @@ import {
   useEffect,
   useRef
 } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderMenu = ({ label, color, backgroundColor, items }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -43,7 +45,8 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
         className="flex items-center justify-center px-4 py-2 w-auto mx-8 min-w-64 h-10 rounded-full focus:outline-none"
         style={{ color: color, backgroundColor: backgroundColor }}
       >
-        <span>{label}</span>
+        <span className="mr-2">{label}</span>
+        <FontAwesomeIcon icon={dropdownOpen ? faChevronUp : faChevronDown} />
       </button>
 
       {dropdownOpen && items && items.length > 0 && (
@@ -65,7 +68,7 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
                 <label
                   className={`flex items-center ${
                     selectedItem === item ? 'text-black' : 'text-gray-400'
-                    }`}
+                  }`}
                 >
                   <span className="px-4">{item.label}</span>
                 </label>
@@ -88,7 +91,7 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
                       <label
                         className={`flex items-center ${
                           selectedItem === subItem ? 'text-black' : 'text-gray-400'
-                          }`}
+                        }`}
                       >
                         <span className = "px-4">{subItem.label}</span>
                       </label>
