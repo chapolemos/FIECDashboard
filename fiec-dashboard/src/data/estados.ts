@@ -1,4 +1,4 @@
-interface DadosEstado {
+export interface DadosEstado {
     indiceFIECInovacao: number;
     indiceCapacidades: number;
     investimentoPublicoCT: number;
