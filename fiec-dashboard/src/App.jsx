@@ -5,13 +5,13 @@ import {
 import Sidebar from './components/Sidebar';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('tab1'); 
+  const [activeTab, setActiveTab] = useState(''); 
 
 
   return (
     <div className="flex h-screen w-screen bg-white">
       <main className="flex-1 flex">
-        <Sidebar setActiveTab={setActiveTab} />
+        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="flex-1 bg-black p-4">
           <h1 className="text-2xl font-bold mb-4">Conteúdo Aqui</h1>
           {activeTab === 'ranking' && (
