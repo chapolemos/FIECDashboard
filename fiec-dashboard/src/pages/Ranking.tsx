@@ -3,12 +3,18 @@ import {
   Header,
   HeaderCard,
   HeaderMenu,
-  BrasilMapa
+  BrazilMap,
+  BarChart
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
-
+const brazilStatesData = [
+  { state: 'Acre', value: 10 },
+  { state: 'Alagoas', value: 20 },
+  { state: 'Amapá', value: 15 },
+  // ... adicione todos os estados brasileiros
+];
 const mockRegioes = [
   {
     label: 'Nordeste',
@@ -55,7 +61,11 @@ const Ranking = () => {
 
       </Header>
       <div className="flex flex-row">
-        <BrasilMapa></BrasilMapa>
+        <BrazilMap></BrazilMap>
+        <div>
+      <h1>Gráfico de Barras dos Estados Brasileiros</h1>
+      <BarChart data={brazilStatesData} />
+    </div>
       </div>
       
     </>

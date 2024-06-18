@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
-import brazilGeoJson from '../data/br.json'; // Ensure this path is correct
+import brazilGeoJson from '../data/br.json';
 
 const BrazilMap = () => {
   const mapRef = useRef(null);
@@ -30,7 +30,7 @@ const BrazilMap = () => {
       .data(geojson.features)
       .enter()
       .append('path')
-      .attr('d', path)  // Use the path generator function to set the 'd' attribute
+      .attr('d', path)
       .attr('fill', 'steelblue')
       .attr('stroke', 'white')
       .attr('stroke-width', 1)

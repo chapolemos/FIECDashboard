@@ -5,8 +5,18 @@ Esse projeto é a reprodução de um dashboard disponibilizado em Power BI feito
 O repositório conta com as pastas para o front-end do projeto (fiec-dashboard) e o back-end (fiec-backend).
 
 
+## Bibliotecas Utilizadas
+React
 
+Vite 
 
+D3.js
+
+PostCSS + Autoprefixer
+
+Tailwind.css
+
+FontAwesome (pacote Free Solid SVG Icons)
 
 ## Créditos
 
