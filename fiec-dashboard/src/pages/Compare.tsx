@@ -4,31 +4,33 @@ import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 
+export const mockEstados = [
+    {
+        label: 'Nordeste',
+        subItems: [
+            { label: "Ceará", selected: false },
+            { label: "Pernambuco", selected: false },
+            { label: "Rio Grande do Norte", selected: false },
+        ]
+    },
+    {
+        label: 'Sudeste',
+        subItems: [
+            { label: "São Paulo", selected: false },
+            { label: "Rio de Janeiro", selected: false },
+            { label: "Espírito Santo", selected: false },
+        ]
+    }
+
+]
+
 const Compare = () => {
     const { colors } = colorTheme;
 
-    const mockEstados = [
-        {
-            label: 'Nordeste',
-            subItems: [
-                { label: "Ceará", selected: false },
-                { label: "Pernambuco", selected: false },
-                { label: "Rio Grande do Norte", selected: false },
-            ]
-        },
-        {
-            label: 'Sudeste',
-            subItems: [
-                { label: "São Paulo", selected: false },
-                { label: "Rio de Janeiro", selected: false },
-                { label: "Espírito Santo", selected: false },
-            ]
-        }
-
-    ]
+    
 
     return (
-        <div>
+        <>
             <Header>
                 <HeaderCard
                     icon={<FontAwesomeIcon icon={faFileLines} />}
@@ -50,7 +52,7 @@ const Compare = () => {
                 />
             </Header>
             <p>Aba de compare</p>
-        </div>
+        </>
     );
 };
 

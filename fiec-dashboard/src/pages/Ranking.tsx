@@ -8,11 +8,29 @@ import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 
+const mockRegioes = [
+  {
+    label: 'Nordeste',
+  },
+  {
+    label: 'Centro-oeste',
+  },
+  {
+    label: 'Norte',
+  },
+  {
+    label: 'Sudeste',
+  },
+  {
+    label: 'Sul',
+  },
+
+]
 const Ranking = () => {
   const { colors } = colorTheme;
 
   return (
-    <div>
+    <>
       <Header>
         <HeaderCard
           icon={<FontAwesomeIcon icon={faFileLines} />}
@@ -24,18 +42,21 @@ const Ranking = () => {
           label="Selecione um Indicador"
           color={colors.text}
           backgroundColor={colors.topButton}
+          items={mockRegioes}
+
         />
         <HeaderMenu
           label="Tipo de Regionalização"
           color={colors.text}
           backgroundColor={colors.topButton2}
+          items={mockRegioes}
         />
 
       </Header>
       <p>
         Aba de perfil
       </p>
-    </div>
+    </>
   );
 };
 
