@@ -5,6 +5,8 @@ import brazilGeoJson from '../data/br.json';
 const BrazilMap = () => {
   const mapRef = useRef(null);
 
+  const sudesteStates = ["SP", "RJ", "MG", "ES"];
+
   useEffect(() => {
     const width = 960;
     const height = 600;
@@ -31,14 +33,14 @@ const BrazilMap = () => {
       .enter()
       .append('path')
       .attr('d', path)
-      .attr('fill', 'steelblue')
+      .attr('fill', d => sudesteStates.includes(d.properties.id) ? 'orange' : 'steelblue')
       .attr('stroke', 'white')
       .attr('stroke-width', 1)
-      .on('mouseover', function () {
-        d3.select(this).attr('fill', 'orange');
+      .on('mouseover', function (event, d) {
+        d3.select(this).attr('fill', 'red');
       })
-      .on('mouseout', function () {
-        d3.select(this).attr('fill', 'steelblue');
+      .on('mouseout', function (event, d) {
+        d3.select(this).attr('fill', sudesteStates.includes(d.properties.id) ? 'orange' : 'steelblue');
       });
   }, []);
 
