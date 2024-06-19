@@ -52,37 +52,50 @@ const Profile = () => {
                     items={mockEstados}
                 />
             </Header>
-            <div className="p-5">
-                <ValuesCardHeader color={colors.DodgerBlue} />
-                <div className="grid grid-cols-3 gap-4 mt-5">
-                    {cardsCapacities.map((card, index) => (
-                        <ValuesCard
-                            key={`capacity-${index}`}
-                            icon={<FontAwesomeIcon icon={card.icon} />}
-                            label={card.label}
-                            color={colors.DodgerBlue}
-
-                        />
-                    ))}
+            <div className="p-5 flex flex-row">
+                {/* Primeira seção */}
+                <div className="flex-1 m4-5">
+                    <div className="m4-5">
+                        <ValuesCardHeader color={colors.DodgerBlue} />
+                        <div className="grid grid-cols-3 gap-4 mt-4">
+                            {cardsCapacities.map((card, index) => (
+                                <ValuesCard
+                                    key={`capacity-${index}`}
+                                    icon={<FontAwesomeIcon icon={card.icon} />}
+                                    label={card.label}
+                                />
+                            ))}
+                        </div>
+                    </div>
                     
-                    {cardsResults.map((card, index) => (
-                        <ValuesCard
-                            key={`result-${index}`}
-                            icon={<FontAwesomeIcon icon={card.icon} />}
-                            label={card.label}
-                            color={colors.Turquoise}
+                    <div className="mb-4">
+                        <ValuesCardHeader color={colors.Turquoise} />
+                        <div className="grid grid-cols-3 gap-4 mt-3">
+                            {cardsResults.map((card, index) => (
+                                <ValuesCard
+                                    key={`result-${index}`}
+                                    icon={<FontAwesomeIcon icon={card.icon} />}
+                                    label={card.label}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
-                        />
-                    ))}
-                    
-                    {cardsGeneral.map((card, index) => (
-                        <ValuesCard
-                            key={`general-${index}`}
-                            icon={<FontAwesomeIcon icon={card.icon} />}
-                            label={card.label}
-                            color={colors.LightGray}
-                        />
-                    ))}
+                {/* Segunda seção */}
+                <div className="flex-1 rounded-lg" style={{backgroundColor:colors.DarkSlateBlue}}>
+                    <div className="mb-4">
+                        <span>Alagoas</span>
+                        <div className="grid grid-cols-3 gap-4 m4-3">
+                            {cardsGeneral.map((card, index) => (
+                                <ValuesCard
+                                    key={`general-${index}`}
+                                    icon={<FontAwesomeIcon icon={card.icon} />}
+                                    label={card.label}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

@@ -6,7 +6,7 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 const ValuesCardHeader = ({color}) => {
   const { colors } = colorTheme;
   return (
-    <div className="flex flex-col items-start w-[36rem]">
+    <div className="flex my-4 flex-col items-start w-[36rem]">
 
       <div
         className="w-10 h-10 mx-12 z-10 rounded-full -mb-6 flex items-center justify-center"
