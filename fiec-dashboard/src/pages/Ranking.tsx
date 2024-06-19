@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Header,
   HeaderCard,
@@ -10,32 +10,149 @@ import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { estadosRanking } from '../data/estadosRanking';
-const brazilStatesData = [
-  { state: 'Acre', value: 10 },
-  { state: 'Alagoas', value: 20 },
-  { state: 'Amapá', value: 15 },
-  // ... adicione todos os estados brasileiros
-];
 const mockRegioes = [
   {
-    label: 'Nordeste',
+    nome: 'Nordeste',
   },
   {
-    label: 'Centro-oeste',
+    nome: 'Centro-oeste',
   },
   {
-    label: 'Norte',
+    nome: 'Norte',
   },
   {
-    label: 'Sudeste',
+    nome: 'Sudeste',
   },
   {
-    label: 'Sul',
+    nome: 'Sul',
   },
+];
 
-]
+const data = [
+  {
+    nome: "Sudeste",
+    estados: [
+      {
+        nome: "São Paulo",
+        sigla: "SP"
+      },
+      {
+        nome: "Rio de Janeiro",
+        sigla: "RJ"
+       
+      },
+      {
+        sigla:"MG"
+      },
+      {
+        sigla:"ES"
+      },
+
+    ]
+  },
+  {
+    nome: "Nordeste", 
+    estados: [
+      {
+        sigla: "CE"
+      },
+      {
+        sigla: "RN"
+      },
+      {
+        sigla: "SE"
+      },
+      {
+        sigla: "PB"
+      },
+      {
+        sigla: "PE"
+      },
+      {
+        sigla: "AL"
+      },
+      {
+        sigla: "BA"
+      },
+      {
+        sigla: "PI"
+      },
+      {
+        sigla: "MA"
+      },
+    ]
+    }
+    ,
+    {
+      nome: "Sul", 
+      estados: [
+        {
+          sigla: "SC"
+        },
+        {
+          sigla: "RS"
+        },
+        {
+          sigla: "PR"
+        }
+      ]
+    },
+    {
+      nome: "Centro-oeste", 
+      estados: [
+        {
+          sigla: "MT"
+        },
+        {
+          sigla: "MS"
+        },
+        {
+          sigla: "DF"
+        },
+        {
+          sigla: "GO"
+        }
+      ]
+    },
+    {
+      nome: "Norte", 
+      estados: [
+        {
+          sigla: "AM"
+        },
+        {
+          sigla: "PA"
+        },
+        {
+          sigla: "RR"
+        },
+        {
+          sigla: "RO"
+        },
+        {
+          sigla: "AC"
+        },
+        {
+          sigla: "AP"
+        },
+        {
+          sigla: "TO"
+        }
+      ]
+    }
+  ];
+
 const Ranking = () => {
   const { colors } = colorTheme;
+  const [highlightedStates, setHighlightedStates] = useState([]);
+
+  const handleRegionSelect = (region) => {
+    const selectedRegion = data.find(r => r.nome === region.nome);
+    if (selectedRegion) {
+      const states = selectedRegion.estados.map(e => e.sigla);
+      setHighlightedStates(states);
+    }
+  };
 
   return (
     <>
@@ -51,16 +168,16 @@ const Ranking = () => {
           color={colors.White}
           backgroundColor={colors.DodgerBlue}
           items={mockRegioes}
-
         />
         <HeaderMenu
           label="Tipo de Regionalização"
           color={colors.White}
           backgroundColor={colors.Purple}
           items={mockRegioes}
+          onRegionSelect={handleRegionSelect}
         />
-
       </Header>
+
       <div className="flex items-center justify-center my-8">
         <h2 className=""
         style={{
@@ -70,13 +187,12 @@ const Ranking = () => {
         >Índice FIEC de inovação</h2>
       </div>
       <div className="flex flex-row">
-        <BrazilMap></BrazilMap>
+        <BrazilMap highlightedStates={highlightedStates}></BrazilMap>
         <div>
           <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={estadosRanking} /></div>
       
     </div>
       </div>
-      
     </>
   );
 };

@@ -1,13 +1,8 @@
-import {
-  React,
-  useState,
-  useEffect,
-  useRef
-} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-const HeaderMenu = ({ label, color, backgroundColor, items }) => {
+const HeaderMenu = ({ label, color, backgroundColor, items, onRegionSelect }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const dropdownRef = useRef(null);
@@ -18,6 +13,7 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    onRegionSelect(item);
   };
 
   const handleClickOutside = (event) => {
@@ -67,10 +63,10 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
                 />
                 <label
                   htmlFor={`item-${index}`}
-                  className={`flex items-center  cursor-pointer ${selectedItem === item ? 'text-black' : 'text-gray-400'
-                    }`}
+                  className={`flex items-center cursor-pointer ${selectedItem === item ? 'text-black' : 'text-gray-400'}`}
+                  onClick={() => handleItemClick(item)}
                 >
-                  <span className="px-4">{item.label}</span>
+                  <span className="px-4">{item.nome}</span>
                 </label>
               </div>
               {item.subItems && (

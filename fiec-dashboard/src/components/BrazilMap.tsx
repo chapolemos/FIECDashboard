@@ -2,15 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import brazilGeoJson from '../data/br.json';
 
-const BrazilMap = () => {
+const BrazilMap = ({ highlightedStates }) => {
   const mapRef = useRef(null);
-
-  const sudesteStates = ["SP", "RJ", "MG", "ES"];
 
   useEffect(() => {
     const width = 960;
     const height = 600;
-    
+
     d3.select(mapRef.current).select('svg').remove();
 
     const svg = d3.select(mapRef.current)
@@ -33,16 +31,20 @@ const BrazilMap = () => {
       .enter()
       .append('path')
       .attr('d', path)
-      .attr('fill', d => sudesteStates.includes(d.properties.id) ? 'orange' : 'steelblue')
+      .attr('fill', feature => {
+        const stateId = feature.properties.id;
+        return highlightedStates.includes(stateId) ? 'orange' : 'steelblue';
+      })
       .attr('stroke', 'white')
       .attr('stroke-width', 1)
-      .on('mouseover', function (event, d) {
-        d3.select(this).attr('fill', 'red');
+      .on('mouseover', function () {
+        d3.select(this).attr('fill', 'orange');
       })
-      .on('mouseout', function (event, d) {
-        d3.select(this).attr('fill', sudesteStates.includes(d.properties.id) ? 'orange' : 'steelblue');
+      .on('mouseout', function (event, feature) {
+        const stateId = feature.properties.id;
+        d3.select(this).attr('fill', highlightedStates.includes(stateId) ? 'orange' : 'steelblue');
       });
-  }, []);
+  }, [highlightedStates]);
 
   return (
     <div ref={mapRef} />
