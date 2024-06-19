@@ -3,7 +3,7 @@ import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
-const CardValores = () => {
+const ValuesCard = () => {
   const { colors } = colorTheme;
   return (
     <div className="flex flex-col items-center">
@@ -75,4 +75,4 @@ const CardValores = () => {
   );
 };
 
-export default CardValores;
+export default ValuesCard;

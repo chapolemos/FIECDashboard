@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Sidebar } from './components'
-import { Compare, Perfil, Ranking } from './pages';
+import { Compare, Profile, Ranking } from './pages';
 import { colorTheme } from './theme';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         }}
         >
           {activeTab === 'ranking' && <Ranking />}
-          {activeTab === 'perfil' && <Perfil />}
+          {activeTab === 'perfil' && <Profile />}
           {activeTab === 'compare' && <Compare />}
         </div>
       </main>

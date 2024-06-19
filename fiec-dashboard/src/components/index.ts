@@ -4,6 +4,7 @@ import HeaderMenu from "./HeaderMenu";
 import Sidebar from "./Sidebar";
 import BrazilMap from "./BrazilMap";
 import BarChart from "./BarChart";
-import CardValores from "./CardValores"
+import ValuesCard from "./ValuesCard"
 
-export { Header, HeaderCard, HeaderMenu, Sidebar, BrazilMap, BarChart, CardValores};
+
+export { Header, HeaderCard, HeaderMenu, Sidebar, BrazilMap, BarChart, ValuesCard};

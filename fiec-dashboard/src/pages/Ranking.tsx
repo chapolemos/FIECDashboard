@@ -44,7 +44,7 @@ const Ranking = () => {
           icon={<FontAwesomeIcon icon={faFileLines} />}
           label="Perfil"
           color={colors.DarkSlateBlue}
-          backgroundColor={colors.backgroundLight}
+          backgroundColor={colors.AliceBlue}
         />
         <HeaderMenu
           label="Selecione um Indicador"
@@ -64,7 +64,7 @@ const Ranking = () => {
       <div className="flex items-center justify-center my-8">
         <h2 className=""
         style={{
-          color: colors.sidebar,
+          color: colors.DarkSlateBlue,
           fontWeight:'bold',
         }}
         >Índice FIEC de inovação</h2>

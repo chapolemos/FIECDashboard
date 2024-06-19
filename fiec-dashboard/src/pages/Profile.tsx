@@ -3,14 +3,14 @@ import {
     Header,
     HeaderCard,
     HeaderMenu,
-    CardValores
+    ValuesCard
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { mockEstados } from './Compare';
 
-const Perfil = () => {
+const Profile = () => {
     const { colors } = colorTheme;
 
     return (
@@ -33,10 +33,10 @@ const Perfil = () => {
             </Header>
             <p>
                 Aba de perfil
-                <CardValores></CardValores>
+                <ValuesCard></ValuesCard>
             </p>
         </>
     );
 };
 
-export default Perfil;
+export default Profile;
