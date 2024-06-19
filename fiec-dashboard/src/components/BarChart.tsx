@@ -5,9 +5,9 @@ const BarChart = ({ data }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    const margin = { top: 20, right: 30, bottom: 40, left: 90 };
-    const width = 960 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+    const margin = { top: 20, right: 60, bottom: 20, left: 60 };
+    const width = 200;
+    const height = 500;
 
     d3.select(chartRef.current).select('svg').remove();
 
@@ -28,13 +28,13 @@ const BarChart = ({ data }) => {
       .padding(0.1);
 
     svg.append('g')
-      .attr('class', 'x-axis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(d3.axisBottom(x));
-
-    svg.append('g')
       .attr('class', 'y-axis')
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y))
+      .selectAll('text')
+      .style('fill', 'black'); 
+    const colorScale = d3.scaleSequential()
+      .domain([-0.5, 1]) 
+      .interpolator(d3.interpolateBlues);
 
     svg.selectAll('.bar')
       .data(data)
@@ -44,13 +44,25 @@ const BarChart = ({ data }) => {
       .attr('y', d => y(d.UF))
       .attr('width', d => x(d.ValorRanking))
       .attr('height', y.bandwidth())
-      .attr('fill', d => d3.interpolateBlues(d.ValorRanking / d3.max(data, d => d.ValorRanking)))
+      .attr('fill', d => colorScale(d.ValorRanking / d3.max(data, d => d.ValorRanking)))
       .on('mouseover', function () {
         d3.select(this).attr('fill', 'orange');
       })
-      .on('mouseout', function () {
-        d3.select(this).attr('fill', d => d3.interpolateBlues(d.ValorRanking / d3.max(data, d => d.ValorRanking)));
+      .on('mouseout', function (event, d) {
+        d3.select(this).attr('fill', colorScale(d.ValorRanking / d3.max(data, d => d.ValorRanking)));
       });
+
+    svg.selectAll('.label')
+      .data(data)
+      .enter()
+      .append('text')
+      .attr('class', 'label')
+      .attr('x', d => x(d.ValorRanking) + 5)
+      .attr('y', d => y(d.UF) + y.bandwidth() / 2)
+      .attr('dy', '.35em') 
+      .attr('fill', 'black')
+      .text(d => d.ValorRanking);
+
   }, [data]);
 
   return (

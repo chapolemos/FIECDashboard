@@ -61,13 +61,19 @@ const Ranking = () => {
         />
 
       </Header>
-      <div className="flex items-center justify-center">
-        <h1>Índice Fiec</h1>
+      <div className="flex items-center justify-center my-8">
+        <h2 className=""
+        style={{
+          color: colors.sidebar,
+          fontWeight:'bold',
+        }}
+        >Índice FIEC de inovação</h2>
       </div>
       <div className="flex flex-row">
         <BrazilMap></BrazilMap>
         <div>
-      <BarChart data={estadosRanking} />
+          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={estadosRanking} /></div>
+      
     </div>
       </div>
       
