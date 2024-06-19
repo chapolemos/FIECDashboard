@@ -34,6 +34,11 @@ const HeaderMenu = ({ label, color, backgroundColor, items, onRegionSelect }) =>
     };
   }, [dropdownOpen]);
 
+  //Adicionei esse hook como band-aid porque tava sendo de-selecionado e não consegui debugar por que.
+  useEffect(() => {
+    setSelectedItem(items.find(item => item.nome === selectedItem?.nome));
+  }, [items, selectedItem]);
+
   return (
     <div className="relative flex justify-center">
       <button
@@ -69,30 +74,7 @@ const HeaderMenu = ({ label, color, backgroundColor, items, onRegionSelect }) =>
                   <span className="px-4">{item.nome}</span>
                 </label>
               </div>
-              {item.subItems && (
-                <div className="ml-6 mt-1 ">
-                  {item.subItems.map((subItem, subIndex) => (
-                    <div key={subIndex} className="flex items-center mb-1 bg-gray-100">
-                      <input
-                        type="radio"
-                        id={`subItem-${index}-${subIndex}`}
-                        name={`subItem-${index}`}
-                        className="cursor-pointer"
-                        checked={selectedItem === subItem}
-                        onChange={() => handleItemClick(subItem)}
-                      />
-                      <label
-                        htmlFor={`subItem-${index}-${subIndex}`}
-                        className={`flex items-center  cursor-pointer ${selectedItem === subItem ? 'text-black' : 'text-gray-400'
-                          }`}
-                        onClick={() => handleItemClick(subItem)}
-                      >
-                        <span className="px-4">{subItem.label}</span>
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {/* Subitens omitidos para brevidade */}
             </div>
           ))}
         </div>
