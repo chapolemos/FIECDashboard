@@ -6,6 +6,7 @@ import BrazilMap from "./BrazilMap";
 import BarChart from "./BarChart";
 import ValuesCard from "./ValuesCard"
 import SpiderChart from "./SpiderChart";
+import ValuesCardHeader from "./ValuesCardHeader";
 
 
-export { Header, HeaderCard, HeaderMenu, Sidebar, BrazilMap, BarChart, SpiderChart, ValuesCard};
+export { Header, HeaderCard, HeaderMenu, Sidebar, BrazilMap, BarChart, SpiderChart, ValuesCard, ValuesCardHeader};

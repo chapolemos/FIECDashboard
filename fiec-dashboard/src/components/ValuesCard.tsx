@@ -1,9 +1,8 @@
 import React from 'react';
 import { colorTheme } from '../theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
-const ValuesCard = () => {
+
+const ValuesCard = ({icon}) => {
   const { colors } = colorTheme;
   return (
     <div className="flex flex-col items-center">
@@ -12,7 +11,7 @@ const ValuesCard = () => {
         className="w-10 h-9 mx-8 z-10 rounded-full -mb-4 flex items-center justify-center"
         style={{ color: colors.DarkSlateBlue, backgroundColor: colors.LightGray }}
       >
-        <FontAwesomeIcon icon={faGraduationCap}></FontAwesomeIcon>
+        {icon}
       </div>
 
       <div

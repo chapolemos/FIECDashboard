@@ -3,11 +3,12 @@ import {
     Header,
     HeaderCard,
     HeaderMenu,
-    ValuesCard
+    ValuesCard,
+    ValuesCardHeader
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { mockEstados } from './Compare';
 
 const Profile = () => {
@@ -28,13 +29,15 @@ const Profile = () => {
                     backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
-
-
             </Header>
-            <p>
-                Aba de perfil
-                <ValuesCard></ValuesCard>
-            </p>
+            <div className="p-5">
+                <ValuesCardHeader />
+                <div className="grid grid-cols-3 gap-4 mt-5">
+                        <ValuesCard icon={<FontAwesomeIcon icon={faGraduationCap} />}></ValuesCard>
+                   
+               
+                </div>
+            </div>
         </>
     );
 };
