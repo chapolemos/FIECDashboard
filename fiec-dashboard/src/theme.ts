@@ -10,7 +10,8 @@
       capacidades: '#2f80ed',
       resultados: '3bc3df',
       tabelaCompare: '#094780',
-      pontosGrafico: '#7c25d1'
+      pontosGrafico: '#7c25d1',
+      oval: '#cfd9db'
     },
   }
   /*

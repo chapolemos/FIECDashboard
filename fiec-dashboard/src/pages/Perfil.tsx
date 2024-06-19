@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Header,
     HeaderCard,
-    HeaderMenu
+    HeaderMenu,
+    CardValores
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +21,6 @@ const Perfil = () => {
                     label="Perfil"
                     color={colors.sidebar}
                     backgroundColor={colors.backgroundLight}
-                    items={mockEstados}
                 />
                 <HeaderMenu
                     label="Região"
@@ -33,6 +33,7 @@ const Perfil = () => {
             </Header>
             <p>
                 Aba de perfil
+                <CardValores></CardValores>
             </p>
         </>
     );
