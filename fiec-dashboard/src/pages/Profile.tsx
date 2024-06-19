@@ -15,7 +15,26 @@ import { faFileLines, faEnvelope, faSackDollar,
     faGraduationCap,
     faMoneyBill1Wave
 } from '@fortawesome/free-solid-svg-icons'; 
+import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
+
+const acreData = {
+    indiceFIECInovacao: 0.8,
+    indiceCapacidades: 0.7,
+    investimentoPublicoCT: 0.6,
+    capitalHumanoGraduacao: 0.85,
+    capitalHumanoPosGraduacao: 0.75,
+    insercaoMestresDoutores: 0.65,
+    instituicoes: 0.9,
+    infraestrutura: 0.7,
+    cooperacao: 0.8,
+    indiceResultados: 0.85,
+    competitividadeGlobal: 0.7,
+    intensidadeTecnologica: 0.6,
+    propriedadeIntelectual: 0.75,
+    producaoCientifica: 0.8,
+    empreendedorismo: 0.7
+  };
 
 const Profile = () => {
     const { colors } = colorTheme;
@@ -59,7 +78,7 @@ const Profile = () => {
                 />
             </Header>
             <div className="p-4 flex -mt-4 flex-row justify-center">
-                <div className="flex-1 m4-5 max-w-xl mx-12">
+                <div className="flex-1 m4-5 max-w-xl mx-16">
                     <div className="m4-5">
                         <ValuesCardHeader 
                             color={colors.DodgerBlue} 
@@ -95,7 +114,7 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 rounded-lg max-w-2xl" style={{backgroundColor:colors.White}}>
+                <div className="flex-1 mx-16 rounded-lg max-w-2xl" style={{backgroundColor:colors.White}}>
                     <div className="flex flex-col">
                         <span 
                             className="self-center m-4"
@@ -116,7 +135,8 @@ const Profile = () => {
                             ))}
                         </div>
                     </div>
-                </div>
+                    <SpiderChart data={acreData} ></SpiderChart>
+                    </div>
             </div>
         </>
     );
