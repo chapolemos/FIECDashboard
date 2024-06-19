@@ -52,7 +52,7 @@ const HeaderMenu = ({ label, color, backgroundColor, items }) => {
       {dropdownOpen && items && items.length > 0 && (
         <div
           ref={dropdownRef}
-          className="absolute bg-white min-w-64 shadow-md rounded-lg mt-12 py-2 px-4"
+          className="absolute bg-white min-w-64 shadow-md rounded-lg mt-12 py-2 px-4 z-20"
         >
           {items.map((item, index) => (
             <div key={index} className="mb-2">

@@ -3,7 +3,7 @@ import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
-const ValuesCardHeader = ({color}) => {
+const ValuesCardHeader = ({color, icon}) => {
   const { colors } = colorTheme;
   return (
     <div className="flex my-4 flex-col items-start">
@@ -12,7 +12,7 @@ const ValuesCardHeader = ({color}) => {
         className="w-10 h-10 mx-4 z-10 rounded-full -mb-6 flex items-center justify-center"
         style={{ color: colors.White, backgroundColor: color }}
       >
-        <FontAwesomeIcon icon={faGraduationCap}></FontAwesomeIcon>
+        {icon}
       </div>
 
       
