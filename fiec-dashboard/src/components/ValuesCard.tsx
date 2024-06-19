@@ -2,7 +2,7 @@ import React from 'react';
 import { colorTheme } from '../theme';
 
 
-const ValuesCard = ({icon}) => {
+const ValuesCard = ({icon, label, color}) => {
   const { colors } = colorTheme;
   return (
     <div className="flex flex-col items-center">
@@ -62,12 +62,12 @@ const ValuesCard = ({icon}) => {
       </div>
       <div
         className="w-40 h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center"
-        style={{ color: '#FFFFFF', backgroundColor: colors.DodgerBlue }}
+        style={{ color: colors.White, backgroundColor: color }}
       >
         <span style={{
           fontWeight: 'bold',
           fontSize: 10,
-        }}>Capital Humano - Pós-Graduação</span>
+        }}>{label}</span>
       </div>
 
     </div>
