@@ -8,7 +8,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   const { colors } = colorTheme;
 
   return (
-    <div style={{ backgroundColor: colors.sidebar }} className="w-48 h-screen flex flex-col justify-between max-h-screen">
+    <div style={{ backgroundColor: colors.DarkSlateBlue }} className="w-48 h-screen flex flex-col justify-between max-h-screen">
       <div className="mt-2">
         <img src={indice22} alt="Logo do Indice FIEC de Inovação dos Estados 22" className="mb-2" />
       </div>
@@ -19,8 +19,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
           aria-label="Navegar para a aba de ranking."
           className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
           style={{
-            color: activeTab === 'ranking' ? colors.sidebar : colors.text,
-            backgroundColor: activeTab === 'ranking' ? colors.text : colors.sidebar,
+            color: activeTab === 'ranking' ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: activeTab === 'ranking' ? colors.White : colors.DarkSlateBlue,
             fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('ranking')}
@@ -33,8 +33,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
           aria-label="Navegar para a aba de perfil."
           className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
           style={{
-            color: activeTab === 'perfil' ? colors.sidebar : colors.text,
-            backgroundColor: activeTab === 'perfil' ? colors.text : colors.sidebar,
+            color: activeTab === 'perfil' ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: activeTab === 'perfil' ? colors.White : colors.DarkSlateBlue,
             fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('perfil')}
@@ -47,8 +47,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
           aria-label="Navegar para a aba de comparação."
           className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
           style={{
-            color: activeTab === 'compare' ? colors.sidebar : colors.text,
-            backgroundColor: activeTab === 'compare' ? colors.text : colors.sidebar,
+            color: activeTab === 'compare' ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: activeTab === 'compare' ? colors.White : colors.DarkSlateBlue,
             fontWeight: 'bold',
           }}
           onClick={() => setActiveTab('compare')}
@@ -60,7 +60,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
 
       <div id="sidebarSubsection" 
         className="flex flex-col justify-end rounded-2xl m-2"
-        style={{backgroundColor: colors.sidebarLight}}
+        style={{backgroundColor: colors.RoyalBlue}}
       >
         <img src={p2i} alt="Logo Programa de Inovação Industrial" className="mb-2" />
         <img src={obs} alt="Logo do Observatório da Indústria do Ceará" className="mb-2" />

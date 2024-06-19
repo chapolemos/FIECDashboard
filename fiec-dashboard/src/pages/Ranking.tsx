@@ -43,20 +43,20 @@ const Ranking = () => {
         <HeaderCard
           icon={<FontAwesomeIcon icon={faFileLines} />}
           label="Perfil"
-          color={colors.sidebar}
+          color={colors.DarkSlateBlue}
           backgroundColor={colors.backgroundLight}
         />
         <HeaderMenu
           label="Selecione um Indicador"
-          color={colors.text}
-          backgroundColor={colors.topButton}
+          color={colors.White}
+          backgroundColor={colors.DodgerBlue}
           items={mockRegioes}
 
         />
         <HeaderMenu
           label="Tipo de Regionalização"
-          color={colors.text}
-          backgroundColor={colors.topButton2}
+          color={colors.White}
+          backgroundColor={colors.Purple}
           items={mockRegioes}
         />
 

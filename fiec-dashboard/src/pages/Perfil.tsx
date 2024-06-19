@@ -19,13 +19,13 @@ const Perfil = () => {
                 <HeaderCard
                     icon={<FontAwesomeIcon icon={faFileLines} />}
                     label="Perfil"
-                    color={colors.sidebar}
-                    backgroundColor={colors.backgroundLight}
+                    color={colors.DarkSlateBlue}
+                    backgroundColor={colors.AliceBlue}
                 />
                 <HeaderMenu
                     label="Região"
-                    color={colors.text}
-                    backgroundColor={colors.topButton}
+                    color={colors.White}
+                    backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
 

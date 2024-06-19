@@ -12,7 +12,7 @@ const App = () => {
       <main className="flex-1 flex">
         <div className="flex-1 overflow-auto"
         style={{
-          backgroundColor: colors.backgroundLight
+          backgroundColor: colors.AliceBlue
         }}
         >
           {activeTab === 'ranking' && <Ranking />}

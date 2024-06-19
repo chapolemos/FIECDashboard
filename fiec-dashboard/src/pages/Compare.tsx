@@ -35,19 +35,19 @@ const Compare = () => {
                 <HeaderCard
                     icon={<FontAwesomeIcon icon={faFileLines} />}
                     label="Perfil"
-                    color={colors.sidebar}
-                    backgroundColor={colors.backgroundLight}
+                    color={colors.DarkSlateBlue}
+                    backgroundColor={colors.AliceBlue}
                 />
                 <HeaderMenu
                     label="Selecione a primeira região"
-                    color={colors.text}
-                    backgroundColor={colors.topButton}
+                    color={colors.White}
+                    backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
                 <HeaderMenu
                     label="Selecione a segunda região"
-                    color={colors.text}
-                    backgroundColor={colors.topButton2}
+                    color={colors.White}
+                    backgroundColor={colors.Purple}
                     items={mockEstados}
                 />
             </Header>

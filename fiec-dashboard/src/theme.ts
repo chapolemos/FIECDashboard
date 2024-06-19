@@ -1,17 +1,16 @@
   export const colorTheme = {
     colors: {
-      sidebar: '#1a428a',
-      text: '#ffffff',
-      sidebarLight: '#1d4997',
-      backgroundLight: '#f4f6ff',
-      topButton:'#2f80ed',
-      topButton2: '#7c25d1',
-      inovacao: '#00408d',
-      capacidades: '#2f80ed',
-      resultados: '3bc3df',
-      tabelaCompare: '#094780',
-      pontosGrafico: '#7c25d1',
-      oval: '#cfd9db'
+      White: '#ffffff',          // Branco puro, usado em textos e bg.
+      Black: '#000000',          // Preto puro, usado em textos.
+      DarkSlateBlue: '#1a428a',  // Sidebar
+      RoyalBlue: '#1d4997',      // Parte mais clara da sidebar contendo os logos
+      AliceBlue: '#f4f6ff',      // Azul claro usado no fundo da aplicação
+      DodgerBlue: '#2f80ed',     // Usado pro botão do header #1, e pros índices de Capacidades 
+      Purple: '#7c25d1',         // Usado pro botão do header #2, e pros pontos do gráfico de teia.
+      Navy: '#00408d',           // Usado pros índices de inovação e alguns textos.
+      Turquoise: '#3bc3df',      // Usado pros índices de Resultados 
+      MidnightBlue: '#094780',   // Usado na tabela da aba de compare e textos.
+      LightGray: '#cfd9db'       // Usado no componente circular que contém o icone dos cards de valores.
     },
   }
   /*
