@@ -8,7 +8,7 @@ import {
 } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { estadosRanking } from '../data/estadosRanking';
 const brazilStatesData = [
   { state: 'Acre', value: 10 },
@@ -41,8 +41,8 @@ const Ranking = () => {
     <>
       <Header>
         <HeaderCard
-          icon={<FontAwesomeIcon icon={faFileLines} />}
-          label="Perfil"
+          icon={<FontAwesomeIcon icon={faChartSimple} />}
+          label="Ranking"
           color={colors.DarkSlateBlue}
           backgroundColor={colors.AliceBlue}
         />

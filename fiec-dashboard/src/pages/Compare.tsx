@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, HeaderCard, HeaderMenu } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
 export const mockEstados = [
     {
@@ -33,8 +33,8 @@ const Compare = () => {
         <>
             <Header>
                 <HeaderCard
-                    icon={<FontAwesomeIcon icon={faFileLines} />}
-                    label="Perfil"
+                    icon={<FontAwesomeIcon icon={faCodePullRequest} />}
+                    label="Compare"
                     color={colors.DarkSlateBlue}
                     backgroundColor={colors.AliceBlue}
                 />
