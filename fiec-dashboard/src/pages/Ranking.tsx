@@ -9,13 +9,21 @@ import {
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import { estadosRanking } from '../data/estadosRanking';
+import { regioes } from '../data/estadosDados';
+
+export const estoRank = [
+  { UF: 'SP', PosicaoRanking: 1, ValorRanking: 0.796 },
+  { UF: 'SC', PosicaoRanking: 2, ValorRanking: 0.508 },
+  { UF: 'RS', PosicaoRanking: 3, ValorRanking: 0.448 },
+  { UF: 'TO', PosicaoRanking: 27, ValorRanking: 0.072 }
+];
+
 const mockRegioes = [
   {
     nome: 'Nordeste',
   },
   {
-    nome: 'Centro-oeste',
+    nome: 'Centro-Oeste',
   },
   {
     nome: 'Norte',
@@ -147,7 +155,7 @@ const Ranking = () => {
   const [highlightedStates, setHighlightedStates] = useState([]);
 
   const handleRegionSelect = (region) => {
-    const selectedRegion = data.find(r => r.nome === region.nome);
+    const selectedRegion = regioes.find(r => r.nome === region.nome);
     if (selectedRegion) {
       const states = selectedRegion.estados.map(e => e.sigla);
       setHighlightedStates(states);
@@ -189,7 +197,7 @@ const Ranking = () => {
       <div className="flex flex-row">
         <BrazilMap highlightedStates={highlightedStates}></BrazilMap>
         <div>
-          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={estadosRanking} /></div>
+          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={estoRank} /></div>
       
     </div>
       </div>
