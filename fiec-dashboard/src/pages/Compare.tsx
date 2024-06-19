@@ -1,9 +1,8 @@
 import React from 'react';
-import { Header, HeaderCard, HeaderMenu } from '../components';
+import { Header, HeaderCard, HeaderMenu, SpiderChart } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
-
 export const mockEstados = [
     {
         label: 'Nordeste',
@@ -23,7 +22,23 @@ export const mockEstados = [
     }
 
 ]
-
+const acreData = {
+    indiceFIECInovacao: 0.8,
+    indiceCapacidades: 0.7,
+    investimentoPublicoCT: 0.6,
+    capitalHumanoGraduacao: 0.85,
+    capitalHumanoPosGraduacao: 0.75,
+    insercaoMestresDoutores: 0.65,
+    instituicoes: 0.9,
+    infraestrutura: 0.7,
+    cooperacao: 0.8,
+    indiceResultados: 0.85,
+    competitividadeGlobal: 0.7,
+    intensidadeTecnologica: 0.6,
+    propriedadeIntelectual: 0.75,
+    producaoCientifica: 0.8,
+    empreendedorismo: 0.7
+  };
 const Compare = () => {
     const { colors } = colorTheme;
 
@@ -52,6 +67,7 @@ const Compare = () => {
                 />
             </Header>
             <p>Aba de compare</p>
+            <SpiderChart data={acreData} ></SpiderChart>
         </>
     );
 };
