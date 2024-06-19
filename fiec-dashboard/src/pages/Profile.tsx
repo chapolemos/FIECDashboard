@@ -31,9 +31,9 @@ const Profile = () => {
         { label: 'Empreendedorismo', icon: faEnvelope },
     ];
     const cardsGeneral = [
-        { label: 'Índice FIEC de Inovação', icon: faEnvelope },
-        { label: 'Índice de Capacidades', icon: faEnvelope },
-        { label: 'Índice de Resultados', icon: faEnvelope },
+        { label: 'Índice FIEC de Inovação', icon: faEnvelope, color: colors.MidnightBlue },
+        { label: 'Índice de Capacidades', icon: faEnvelope, color: colors.DodgerBlue  },
+        { label: 'Índice de Resultados', icon: faEnvelope, color: colors.Turquoise  },
     ];
 
     return (
@@ -52,9 +52,8 @@ const Profile = () => {
                     items={mockEstados}
                 />
             </Header>
-            <div className="p-5 flex flex-row">
-                {/* Primeira seção */}
-                <div className="flex-1 m4-5">
+            <div className="p-4 flex flex-row justify-center">
+                <div className="flex-1 m4-5 max-w-xl mx-12">
                     <div className="m4-5">
                         <ValuesCardHeader color={colors.DodgerBlue} />
                         <div className="grid grid-cols-3 gap-4 mt-4">
@@ -63,6 +62,7 @@ const Profile = () => {
                                     key={`capacity-${index}`}
                                     icon={<FontAwesomeIcon icon={card.icon} />}
                                     label={card.label}
+                                    color={colors.DodgerBlue}
                                 />
                             ))}
                         </div>
@@ -76,22 +76,30 @@ const Profile = () => {
                                     key={`result-${index}`}
                                     icon={<FontAwesomeIcon icon={card.icon} />}
                                     label={card.label}
+                                    color={colors.Turquoise}
                                 />
                             ))}
                         </div>
                     </div>
                 </div>
 
-                {/* Segunda seção */}
-                <div className="flex-1 rounded-lg" style={{backgroundColor:colors.DarkSlateBlue}}>
-                    <div className="mb-4">
-                        <span>Alagoas</span>
+                <div className="flex-1 rounded-lg max-w-2xl" style={{backgroundColor:colors.White}}>
+                    <div className="flex flex-col mb-4">
+                        <span 
+                            className="self-center m-4"
+                            style={{
+                                fontSize:24,
+                                fontWeight:'bold',
+                                color: colors.MidnightBlue
+                            }}
+                        >Alagoas</span>
                         <div className="grid grid-cols-3 gap-4 m4-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
                                     key={`general-${index}`}
                                     icon={<FontAwesomeIcon icon={card.icon} />}
                                     label={card.label}
+                                    color={card.color}
                                 />
                             ))}
                         </div>

@@ -6,10 +6,10 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 const ValuesCardHeader = ({color}) => {
   const { colors } = colorTheme;
   return (
-    <div className="flex my-4 flex-col items-start w-[36rem]">
+    <div className="flex my-4 flex-col items-start">
 
       <div
-        className="w-10 h-10 mx-12 z-10 rounded-full -mb-6 flex items-center justify-center"
+        className="w-10 h-10 mx-4 z-10 rounded-full -mb-6 flex items-center justify-center"
         style={{ color: colors.White, backgroundColor: color }}
       >
         <FontAwesomeIcon icon={faGraduationCap}></FontAwesomeIcon>
@@ -17,12 +17,12 @@ const ValuesCardHeader = ({color}) => {
 
       
       <div
-        className="w-[36rem] h-6 mx-8 rounded-lg flex items-center justify-start"
+        className="w-[36rem] h-6 rounded-lg flex items-center justify-start"
         style={{ color: '#FFFFFF', backgroundColor: color }}
       >
         <span style={{
           fontWeight: 'bold',
-          fontSize: 12,
+          fontSize: 14,
         }}
         className="mx-16"
         >Capacidades</span>

@@ -5,7 +5,7 @@ import { colorTheme } from '../theme';
 const ValuesCard = ({icon, label, color}) => {
   const { colors } = colorTheme;
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center ">
 
       <div
         className="w-10 h-9 mx-8 z-10 rounded-full -mb-4 flex items-center justify-center"
