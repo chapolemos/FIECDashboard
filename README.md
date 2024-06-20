@@ -16,6 +16,11 @@ Incluí meta tags de html, robots.txt e um sitemap.xml para questões de SEO no 
 ## Acessibilidade
 O projeto conta com aria-labels em seus diferentes itens para o uso de leitores de tela, já que nem todo leitor de tela é compatível com o uso do elemento "title". Dessa maneira, usuários com dificuldades visuais poderiam ter mais informação ao se acessar o site.
 
+## Escalabilidade e Manutenibilidade
+Essa aplicação foi construída com diversos componentes feitos para serem reutilizáveis e adaptáveis às necessidades do cliente. Além disso, com o uso de ferramentas com o Tailwind, a manutenção do front fica mais rápida e eficiente, acelerando os ciclos de desenvolvimento.
+
+O objeto feito para conter a massa de dados local poderia facilmente ser transformado em uma interface para receber objetos de dados processados de um back-end (que infelizmente não tive tempo de fazer para esse projeto). O objeto foi construído de maneira a evitar iterações em tempo de O(n²) e reduzir o tempo de processamento no front-end. Com os dados sendo recebido no formato correto à partir do back, isso faria a execução da aplicação mais rápida do lado do usuário.
+
 # Bibliotecas Utilizadas
 
 <p align="center">
