@@ -10,7 +10,7 @@ const BarChart = ({ data }) => {
 
   useEffect(() => {
     const margin = { top: 20, right: 60, bottom: 20, left: 60 };
-    const width = 400;
+    const width = 320;
     const height = 600;
 
     d3.select(chartRef.current).select('svg').remove();

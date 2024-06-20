@@ -68,18 +68,19 @@ const Ranking = () => {
       </Header>
 
       <div className="flex items-center justify-center my-8">
-        <h2 style={{ color: colors.DarkSlateBlue, fontWeight: 'bold' }}>
+        <h2 style={{ color: colors.DarkSlateBlue, fontSize:24, fontWeight: 'bold' }}>
           Índice FIEC de inovação
         </h2>
       </div>
 
-      <div className="flex flex-row">
+    <div className="flex flex-row justify-evenly">
+      <div className="flex flex-col flex-1 mx-8 mb-8 rounded-lg max-w-2xl 2xl:min-w-[44rem] md:min-w-[24rem]" >
         <BrazilMap data = {indexData} highlightedStates={highlightedStates} />
-        <div>
-          <div className='bg-white px-10 py-2 rounded-xl'>
-            <BarChart data={indexData} />
-          </div>
-        </div>
+      </div>
+      <div className="flex flex-col mx-12 mb-8 rounded-lg max-w-md shadow-md" style={{ backgroundColor: colors.White }}>
+        <BarChart data={indexData} />
+      </div>
+        
       </div>
     </>
   );

@@ -62,7 +62,7 @@ const ValuesCard = ({icon, label, color}) => {
         </div>
       </div>
       <div
-        className="2xl:w-[12rem] 2xl:font-bold md:w-40 2xl:text-[12px]  m md:text-[10px] h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center shadow-md"
+        className="2xl:w-[12rem] 2xl:font-bold md:w-40 2xl:text-[12px] md:text-[10px] h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center shadow-md"
         style={{ color: colors.White, backgroundColor: color }}
       >
         <span>{label}</span>

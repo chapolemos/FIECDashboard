@@ -4,29 +4,23 @@ import d3Tip from 'd3-tip';
 import brazilGeoJson from '../data/br.json';
 import './tooltip.css'; 
 
-/*
-Mapa coroplético do brasil feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Ranking.
-*/
-
 const BrazilMap = ({ data, highlightedStates }) => {
   const mapRef = useRef(null);
   const tip = useRef(null);
 
   useEffect(() => {
-    const width = 960;
-    const height = 600;
+    const width = mapRef.current.clientWidth;
+    const height = width;
 
     d3.select(mapRef.current).select('svg').remove();
 
     const svg = d3.select(mapRef.current)
       .append('svg')
-      .attr('width', width)
+      .attr('width', '100%')
       .attr('height', height);
 
     const projection = d3.geoMercator()
-      .scale(850)
-      .center([-55, -15])
-      .translate([width / 2, height / 2]);
+      .fitSize([width, height], brazilGeoJson);
 
     const path = d3.geoPath().projection(projection);
 
@@ -89,7 +83,7 @@ const BrazilMap = ({ data, highlightedStates }) => {
   }, [data, highlightedStates]);
 
   return (
-    <div ref={mapRef} className="relative">
+    <div ref={mapRef} className="relative w-full">
       <div className="absolute hidden bg-white border border-gray-300 p-2 rounded text-sm -mt-10 -ml-20 pointer-events-none">
         <div className="font-bold text-blue-600 mb-1"></div>
         <div></div>
