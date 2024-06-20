@@ -1,11 +1,23 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { colorTheme } from '../theme';
 import { abdi, fiec, indice22, obs, p2i } from '../assets/logos/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest, faChartSimple, faFileLines } from '@fortawesome/free-solid-svg-icons';
 
-const Sidebar = ({ activeTab, setActiveTab }) => {
+/*
+Sidebar criada por mim mesmo para ficar sobre a aplicação e navegar entre as telas disponíveis.
+A Sidebar faz uso de links com o React Router para exibir os conteúdos diferentes no App.jsx.
+Há uma verificação da página atualmente ativa para fazer o highlight do botão da aba selecionada.
+Os links contam com tags de title pra SEO e aria-label pra acessibilidade de leitura de tela.
+*/
+
+const Sidebar = () => {
   const { colors } = colorTheme;
+  const location = useLocation();
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <div style={{ backgroundColor: colors.DarkSlateBlue }} className="w-48 h-screen flex flex-col justify-between max-h-screen">
@@ -14,48 +26,48 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
       </div>
 
       <div id="navigationTabs" className="flex flex-col items-end mb-auto">
-        <button
+        <Link
+          to="/ranking"
           title="Navegar para a aba de Ranking"
           aria-label="Navegar para a aba de ranking."
-          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          className={`button flex items-center justify-center h-10 mb-2 w-11/12 rounded-l-full rounded-r-none '}`}
           style={{
-            color: activeTab === 'ranking' ? colors.DarkSlateBlue : colors.White,
-            backgroundColor: activeTab === 'ranking' ? colors.White : colors.DarkSlateBlue,
-            fontWeight: 'bold',
+            color: isActive('/ranking') ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: isActive('/ranking') ? colors.White : colors.DarkSlateBlue,
+            fontWeight: 'bold'
           }}
-          onClick={() => setActiveTab('ranking')}
         >
           <FontAwesomeIcon icon={faChartSimple} className="mr-2" />
           <span>Ranking</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/perfil"
           title="Navegar para a aba de Perfil"
           aria-label="Navegar para a aba de perfil."
-          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          className={`button flex items-center justify-center h-10 mb-2 w-11/12 rounded-l-full rounded-r-none'}`}
           style={{
-            color: activeTab === 'perfil' ? colors.DarkSlateBlue : colors.White,
-            backgroundColor: activeTab === 'perfil' ? colors.White : colors.DarkSlateBlue,
-            fontWeight: 'bold',
+            color: isActive('/perfil') ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: isActive('/perfil') ? colors.White : colors.DarkSlateBlue,
+            fontWeight: 'bold'
           }}
-          onClick={() => setActiveTab('perfil')}
-        > 
+        >
           <FontAwesomeIcon icon={faFileLines} className="mr-2" />
           <span>Perfil</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/compare"
           title="Navegar para a aba de Comparação"
           aria-label="Navegar para a aba de comparação."
-          className="button flex items-center justify-center mb-2 w-11/12 rounded-l-full rounded-r-none"
+          className={`button flex items-center justify-center h-10 mb-2 w-11/12 rounded-l-full rounded-r-none '}`}
           style={{
-            color: activeTab === 'compare' ? colors.DarkSlateBlue : colors.White,
-            backgroundColor: activeTab === 'compare' ? colors.White : colors.DarkSlateBlue,
-            fontWeight: 'bold',
+            color: isActive('/compare') ? colors.DarkSlateBlue : colors.White,
+            backgroundColor: isActive('/compare') ? colors.White : colors.DarkSlateBlue,
+            fontWeight: 'bold'
           }}
-          onClick={() => setActiveTab('compare')}
         >
           <FontAwesomeIcon icon={faCodePullRequest} className="mr-2" />
           <span>Compare</span>
-        </button>
+        </Link>
       </div>
 
       <div id="sidebarSubsection" 
