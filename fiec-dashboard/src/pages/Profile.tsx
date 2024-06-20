@@ -17,7 +17,6 @@ import { faFileLines, faEnvelope, faSackDollar,
 } from '@fortawesome/free-solid-svg-icons'; 
 import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
-import {StateCheckbox} from '../components/StateCheckbox'
 
 /* 
 Página de exibição dos índices de um estado/região escolhido em cards e gráfico de radar. 
@@ -81,7 +80,6 @@ const Profile = () => {
                     backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
-                <StateCheckbox></StateCheckbox>
 
             </Header>
             <div className="p-4 flex -mt-4 flex-row justify-center h-auto">
