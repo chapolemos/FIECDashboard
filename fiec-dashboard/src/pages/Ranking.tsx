@@ -3,7 +3,7 @@ import { Header, HeaderCard, RegionMenu, BrazilMap, BarChart, IndexesMenu } from
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import { regioes, IndicesFIECEnum, Regiao, Estado, Index, indexes } from '../data/estadosDados';
+import { regioes, Regiao, Estado, Index, indexes } from '../data/estadosDados';
 
 /* 
 Página de exibição de um mapa coroplético do país e de um gráfico de barras, ambos mostrando a informação
@@ -14,14 +14,14 @@ A página possui filtragem de quais regiões devem ter seus dados mostrados por 
 
 function filterRegions(regions: Regiao[], dataToBeAnalyzed: string) {
   const states = regions.reduce<Estado[]>((acc, regiao) => {
-      acc.push(...regiao.estados);
-      return acc;
+    acc.push(...regiao.estados);
+    return acc;
   }, []);
   const data = states?.map((estado) => {
-      return {
-          sigla: estado.sigla,
-          indice: estado.dados[dataToBeAnalyzed]
-      };
+    return {
+      sigla: estado.sigla,
+      indice: estado.dados[dataToBeAnalyzed]
+    };
   });
   const orderedData = data.sort((a,b) => b.indice - a.indice);
   const rankedData = orderedData.map((data, index) => ({...data, rank: index + 1}));
@@ -32,6 +32,7 @@ const Ranking = () => {
   const { colors } = colorTheme;
   const [selectedRegions, setSelectedRegions] = useState<Regiao[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<Index>(indexes[0]);
+  const [selectedIndexLabel, setSelectedIndexLabel] = useState<string>(indexes[0].label);
 
   const highlightedStates = selectedRegions.reduce<string[]>((acc, region) => {
     acc.push(...region.estados.map((estado) => estado.sigla));
@@ -39,6 +40,10 @@ const Ranking = () => {
   }, []);
 
   const indexData = filterRegions(selectedRegions, selectedIndex.value);
+  
+  useEffect(() => {
+    setSelectedIndexLabel(selectedIndex.label);
+  }, [selectedIndex]);
 
   return (
     <>
@@ -69,18 +74,17 @@ const Ranking = () => {
 
       <div className="flex items-center justify-center my-8">
         <h2 style={{ color: colors.DarkSlateBlue, fontSize:24, fontWeight: 'bold' }}>
-          Índice FIEC de inovação
+          {selectedIndexLabel}
         </h2>
       </div>
 
-    <div className="flex flex-row justify-evenly">
-      <div className="flex flex-col flex-1 mx-8 mb-8 rounded-lg max-w-2xl 2xl:min-w-[44rem] md:min-w-[24rem]" >
+      <div className="flex flex-row justify-evenly">
+        <div className="flex flex-col flex-1 mx-8 mb-8 rounded-lg max-w-2xl 2xl:min-w-[44rem] md:min-w-[24rem]" >
         <BrazilMap data = {indexData} highlightedStates={highlightedStates} />
-      </div>
-      <div className="flex flex-col mx-12 mb-8 rounded-lg max-w-md shadow-md" style={{ backgroundColor: colors.White }}>
-        <BarChart data={indexData} />
-      </div>
-        
+        </div>
+        <div className="flex flex-col mx-12 mb-8 rounded-lg max-w-md shadow-md" style={{ backgroundColor: colors.White }}>
+          <BarChart data={indexData} />
+        </div>
       </div>
     </>
   );
