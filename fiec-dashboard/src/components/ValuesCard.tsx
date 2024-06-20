@@ -18,7 +18,7 @@ const ValuesCard = ({icon, label, color}) => {
       </div>
 
       <div
-        className="py-2 w-40 h-24 mx-4 rounded flex items-center justify-between shadow-md"
+        className="py-2 2xl:w-40 md:w-32 h-24 mx-4 rounded flex items-center justify-between shadow-md"
         style={{ color: colors.DarkSlateBlue, backgroundColor: colors.White }}
       >
         <div 
@@ -30,14 +30,13 @@ const ValuesCard = ({icon, label, color}) => {
            style={{
            fontWeight: 'normal',
            fontSize: 10,
-           color:'#000000'
+           color: colors.Black
             }}
          >2022</span>
             <span 
-           className=" w-4 h-4 flex my-1 items-center justify-center"
+           className=" w-4 h-4 flex my-1 items-center 2xl:text-xl md:text-base justify-center"
            style={{
            fontWeight: 'bold',
-           fontSize: 20,
            }}
          >09º</span>
         </div>
@@ -54,23 +53,19 @@ const ValuesCard = ({icon, label, color}) => {
             }}
          >Valor</span>
             <span 
-           className=" w-4 h-4 flex my-1 items-center justify-center"
+           className=" w-4 h-4 flex my-1 items-center 2xl:text-xl md:text-base justify-center"
            style={{
            fontWeight: 'bold',
-           fontSize: 20,
            color: colors.MidnightBlue
            }}
          >0,349</span>
         </div>
       </div>
       <div
-        className="w-40 h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center shadow-md"
+        className="2xl:w-[12rem] 2xl:font-bold md:w-40 2xl:text-[12px]  m md:text-[10px] h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center shadow-md"
         style={{ color: colors.White, backgroundColor: color }}
       >
-        <span style={{
-          fontWeight: 'bold',
-          fontSize: 10,
-        }}>{label}</span>
+        <span>{label}</span>
       </div>
 
     </div>

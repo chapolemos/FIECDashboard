@@ -9,6 +9,12 @@ Página de comparação de dados entre dois estados/regiões.
 Exibe também um gráfico de radar com a comparação entre os índices de ambos os itens selecionados.
 */
 
+const iconMap = {
+    indiceFIECInovacao: faEarthAmerica,
+    indiceCapacidades: faSliders,
+    indiceResultados: faRocket,
+};
+
 export const mockEstados = [
     {
         label: 'Nordeste',
@@ -79,10 +85,10 @@ const Compare = () => {
                 />
             </Header>
             <div className="p-4 flex flex-1 -mt-4 flex-row justify-center">
-                <div className="flex-1 max-w-xl mx-16">
+                <div className="flex-1 max-w-xl mx-12">
 
                 </div>
-                <div className="flex flex-col flex-1 mx-16 mt-8 rounded-lg max-w-2xl shadow-md" style={{ backgroundColor: colors.White }}>
+                <div className="flex flex-col flex-1 mt-8 mx-12 rounded-lg max-w-2xl min-w-[32rem] shadow-md" style={{ backgroundColor: colors.White }}>
                     <div className="flex flex-col">
                         <span
                             className="self-center mx-4 mt-4 mb-1"

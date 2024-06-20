@@ -1,28 +1,20 @@
-import React from 'react';
-import {
-    Header,
-    HeaderCard,
-    RegionMenu,
-    ValuesCard,
-    ValuesCardHeader
-} from '../components';
+import React, { useState } from 'react';
+import { Header, HeaderCard, RegionMenu, ValuesCard, ValuesCardHeader } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileLines, faEnvelope, faSackDollar, 
-    faBuildingColumns, faGear, faPeopleGroup,
-    faGlobe, faMicrochip, faShieldHalved, faBookOpen, 
-    faEarthAmerica, faSliders, faRocket,
-    faGraduationCap,
-    faMoneyBill1Wave
-} from '@fortawesome/free-solid-svg-icons'; 
+import {
+    faFileLines, faEnvelope, faSackDollar, faBuildingColumns, faGear, faPeopleGroup, faGlobe,
+    faMicrochip, faShieldHalved, faBookOpen, faEarthAmerica, faSliders, faRocket, faGraduationCap, faMoneyBill1Wave
+} from '@fortawesome/free-solid-svg-icons';
 import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
-
+import { regioes, Regiao, Estado } from '../data/estadosDados';
+import StatesMenu from '../components/StatesMenu';
 /* 
 Página de exibição dos índices de um estado/região escolhido em cards e gráfico de radar. 
 */
 
-    const acreData = {
+const acreData = {
     indiceFIECInovacao: 0.8,
     indiceCapacidades: 0.7,
     investimentoPublicoCT: 0.6,
@@ -38,9 +30,28 @@ Página de exibição dos índices de um estado/região escolhido em cards e gr�
     propriedadeIntelectual: 0.75,
     producaoCientifica: 0.8,
     empreendedorismo: 0.7
-  };
+};
+
+const iconMap = {
+    indiceFIECInovacao: faEarthAmerica,
+    indiceCapacidades: faSliders,
+    investimentoPublicoCT: faSackDollar,
+    capitalHumanoGraduacao: faGraduationCap,
+    capitalHumanoPosGraduacao: faGraduationCap,
+    insercaoMestresDoutores: faGraduationCap,
+    instituicoes: faBuildingColumns,
+    infraestrutura: faGear,
+    cooperacao: faPeopleGroup,
+    indiceResultados: faRocket,
+    competitividadeGlobal: faGlobe,
+    intensidadeTecnologica: faMicrochip,
+    propriedadeIntelectual: faShieldHalved,
+    producaoCientifica: faBookOpen,
+    empreendedorismo: faMoneyBill1Wave
+};
 
 const Profile = () => {
+    const [selectedStates, setSelectedStates] = useState<Estado[]>([]);
     const { colors } = colorTheme;
 
     const cardsCapacities = [
@@ -61,8 +72,8 @@ const Profile = () => {
     ];
     const cardsGeneral = [
         { label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
-        { label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue  },
-        { label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise  },
+        { label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue },
+        { label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise },
     ];
 
     return (
@@ -74,43 +85,45 @@ const Profile = () => {
                     color={colors.DarkSlateBlue}
                     backgroundColor={colors.AliceBlue}
                 />
-                <RegionMenu
-                    label="Região"
+                <StatesMenu
+                    label="Estados"
+                    selectedStates={selectedStates}
+                    setSelectedStates={setSelectedStates}
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
-                    items={mockEstados}
+                    items={regioes}
                 />
 
             </Header>
-            <div className="p-4 flex -mt-4 flex-row justify-center h-auto">
-                <div className="flex-1 max-w-xl mx-16">
+            <div className="py-4 flex -mt-4 flex-row justify-center h-auto">
+                <div className="flex-1 max-w-xl mx-12">
                     <div className="">
-                        <ValuesCardHeader 
-                            color={colors.DodgerBlue} 
+                        <ValuesCardHeader
+                            color={colors.DodgerBlue}
                             icon={<FontAwesomeIcon icon={faGraduationCap} size='lg' />}
-                            />
-                        <div className="grid grid-cols-3 gap-2 mt-4">
+                        />
+                        <div className="grid grid-cols-3 gap-y-4 gap-x-16 mt-4">
                             {cardsCapacities.map((card, index) => (
                                 <ValuesCard
                                     key={`capacity-${index}`}
-                                    icon={<FontAwesomeIcon icon={card.icon} size='lg'/>}
+                                    icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.DodgerBlue}
                                 />
                             ))}
                         </div>
                     </div>
-                    
+
                     <div className="">
-                        <ValuesCardHeader 
-                            color={colors.Turquoise} 
-                            icon={<FontAwesomeIcon icon={faFileLines} size='lg'/>}
-                            />
+                        <ValuesCardHeader
+                            color={colors.Turquoise}
+                            icon={<FontAwesomeIcon icon={faFileLines} size='lg' />}
+                        />
                         <div className="grid grid-cols-3 gap-4 mt-3">
                             {cardsResults.map((card, index) => (
                                 <ValuesCard
                                     key={`result-${index}`}
-                                    icon={<FontAwesomeIcon icon={card.icon} size='lg'/>}
+                                    icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.Turquoise}
                                 />
@@ -119,17 +132,17 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col flex-1 mt-8 mx-16 rounded-lg max-w-2xl shadow-md" style={{backgroundColor:colors.White}}>
+                <div className="flex flex-col flex-1 mt-8 mx-12 rounded-lg max-w-2xl min-w-[32rem] shadow-md" style={{ backgroundColor: colors.White }}>
                     <div className="flex flex-col">
-                        <span 
+                        <span
                             className="self-center m-4"
                             style={{
-                                fontSize:24,
-                                fontWeight:'bold',
+                                fontSize: 24,
+                                fontWeight: 'bold',
                                 color: colors.MidnightBlue
                             }}
                         >Alagoas</span>
-                        <div className="grid grid-cols-3 gap-4 m4-3">
+                        <div className="grid grid-cols-3 gap-y-4 -gap-x-2 m4-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
                                     key={`general-${index}`}
@@ -144,8 +157,8 @@ const Profile = () => {
                         </div>
 
                     </div>
-                    </div>
                 </div>
+            </div>
         </>
     );
 };

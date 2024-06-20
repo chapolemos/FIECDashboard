@@ -9,7 +9,7 @@ Header que contém cada seção de cards de valor na página de Perfil.
 const ValuesCardHeader = ({color, icon}) => {
   const { colors } = colorTheme;
   return (
-    <div className="flex my-4 flex-col items-start">
+    <div className="flex mt-4 flex-col items-start">
 
       <div
         className="w-10 h-10 mx-4 z-10 rounded-full -mb-6 flex items-center justify-center"
@@ -20,8 +20,8 @@ const ValuesCardHeader = ({color, icon}) => {
 
       
       <div
-        className="w-[36rem] h-6 rounded-lg flex items-center justify-start shadow-md"
-        style={{ color: '#FFFFFF', backgroundColor: color }}
+        className="2xl:w-[36rem] md:w-[32rem] h-6 rounded-lg flex items-center justify-start shadow-md"
+        style={{ color: colors.White, backgroundColor: color }}
       >
         <span style={{
           fontWeight: 'bold',

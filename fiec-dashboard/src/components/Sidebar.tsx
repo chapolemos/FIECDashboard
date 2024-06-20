@@ -20,8 +20,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div style={{ backgroundColor: colors.DarkSlateBlue }} className="w-48 h-screen flex flex-col justify-between max-h-screen">
-      <div className="mt-2">
+    <div style={{ backgroundColor: colors.DarkSlateBlue }} className="2xl:w-48 md:w-32 min-w-32 h-screen flex flex-col justify-between max-h-screen">
+      <div className="mt-2 mb-2">
         <img src={indice22} 
         alt="Logo do Indice FIEC de Inovação dos Estados 22" className="mb-2" 
         title="Logo do Indice FIEC de Inovação dos Estados 22"
@@ -74,7 +74,7 @@ const Sidebar = () => {
       </div>
 
       <div id="sidebarSubsection" 
-        className="flex flex-col justify-end rounded-2xl m-2"
+        className="flex flex-col justify-end rounded-2xl m-2 mb-100"
         style={{backgroundColor: colors.RoyalBlue}}
       >
         <img src={p2i} 
