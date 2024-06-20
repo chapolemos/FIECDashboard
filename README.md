@@ -7,12 +7,12 @@ O repositório conta com as pastas para o front-end do projeto (fiec-dashboard) 
 
 # Bibliotecas Utilizadas
 
-<div style="display: flex; justify-content: center;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" style="width: 120px; height: 120px; margin: 10px;">
-  <img src="https://camo.githubusercontent.com/2e1efd50b61f26c56e82929d735dce115937350e280abac98641c79d765da27c/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667" alt="Vite" style="width: 120px; height: 120px; margin: 10px;">
-  <img src="https://raw.githubusercontent.com/d3/d3-logo/master/d3.png" alt="d3.js" style="width: 120px; height: 120px; margin: 10px;">
-  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" style="width: 120px; height: 120px; margin: 10px;">
-</div>
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="120" height="120" style="margin: 10px;">
+  <img src="https://camo.githubusercontent.com/2e1efd50b61f26c56e82929d735dce115937350e280abac98641c79d765da27c/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667" alt="Vite" width="120" height="120" style="margin: 10px;">
+  <img src="https://raw.githubusercontent.com/d3/d3-logo/master/d3.png" alt="d3.js" width="120" height="120" style="margin: 10px;">
+  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="120" height="120" style="margin: 10px;">
+</p>
 
 ## React
 
