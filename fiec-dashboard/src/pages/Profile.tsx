@@ -10,6 +10,7 @@ import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
 import { regioes, Regiao, Estado } from '../data/estadosDados';
 import StatesMenu from '../components/StatesMenu';
+
 /* 
 Página de exibição dos índices de um estado/região escolhido em cards e gráfico de radar. 
 */
@@ -51,7 +52,7 @@ const iconMap = {
 };
 
 const Profile = () => {
-    const [selectedStates, setSelectedStates] = useState<Estado[]>([]);
+    const [selectedStates, setSelectedStates] = useState<Estado | Regiao>(regioes[0]);
     const { colors } = colorTheme;
 
     const cardsCapacities = [
@@ -78,6 +79,7 @@ const Profile = () => {
 
     return (
         <>
+            
             <Header>
                 <HeaderCard
                     icon={<FontAwesomeIcon icon={faFileLines} />}
@@ -95,6 +97,7 @@ const Profile = () => {
                 />
 
             </Header>
+            
             <div className="py-4 flex -mt-4 flex-row justify-center h-auto">
                 <div className="flex-1 max-w-xl mx-12">
                     <div className="">
@@ -142,7 +145,7 @@ const Profile = () => {
                                 color: colors.MidnightBlue
                             }}
                         >Alagoas</span>
-                        <div className="grid grid-cols-3 gap-y-4 -gap-x-2 m4-3">
+                        <div className="grid grid-cols-3 gap-y-4  m4-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
                                     key={`general-${index}`}
