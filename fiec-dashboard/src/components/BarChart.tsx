@@ -35,7 +35,7 @@ const BarChart = ({ data }) => {
       .style('fill', 'black'); 
 
     const colorScale = d3.scaleSequential()
-      .domain([-0.5, 1]) 
+      .domain([-0.8, 1]) 
       .interpolator(d3.interpolateBlues);
 
     svg.selectAll('.bar')

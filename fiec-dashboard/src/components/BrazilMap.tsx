@@ -1,9 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import d3Tip from 'd3-tip';
 import brazilGeoJson from '../data/br.json';
+import 'tailwindcss/tailwind.css';
 
 const BrazilMap = ({ data, highlightedStates }) => {
   const mapRef = useRef(null);
+  const tip = useRef(null);
 
   useEffect(() => {
     const width = 960;
@@ -27,8 +30,22 @@ const BrazilMap = ({ data, highlightedStates }) => {
 
     const indexValues = data.map(d => d.indice);
     const colorScale = d3.scaleSequential()
-      .domain([0, d3.max(indexValues)])
+      .domain([-0.8, d3.max(indexValues)])
       .interpolator(d3.interpolateBlues);
+
+    tip.current = d3Tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(d => {
+        const stateId = d.properties.id;
+        const stateIndexData = data.find(data => data.sigla === stateId);
+        if (stateIndexData) {
+          return `<div><strong>${stateId}</strong>: ${stateIndexData.indice}</div>`;
+        }
+        return stateId;
+      });
+
+    svg.call(tip.current);
 
     svg.append('g')
       .selectAll('path')
@@ -38,7 +55,6 @@ const BrazilMap = ({ data, highlightedStates }) => {
       .attr('d', path)
       .attr('fill', feature => {
         const stateId = feature.properties.id;
-        
         const stateIndexData = data.find(d => d.sigla === stateId);
         if (stateIndexData) {
           return colorScale(stateIndexData.indice);
@@ -48,23 +64,30 @@ const BrazilMap = ({ data, highlightedStates }) => {
       })
       .attr('stroke', 'white')
       .attr('stroke-width', 1)
-      .on('mouseover', function () {
+      .on('mouseover', function (event, feature) {
+        tip.current.show(feature, this);
         d3.select(this).attr('fill', 'skyblue');
       })
       .on('mouseout', function (event, feature) {
+        tip.current.hide();
         const stateId = feature.properties.id;
         const stateIndexData = data.find(d => d.sigla === stateId);
         if (stateIndexData) {
           d3.select(this).attr('fill', colorScale(stateIndexData.indice));
         } else {
-          d3.select(this).attr('fill', 'lightblue'); 
+          d3.select(this).attr('fill', 'lightblue');
         }
       });
 
   }, [data, highlightedStates]);
 
   return (
-    <div ref={mapRef} />
+    <div ref={mapRef} className="relative">
+      <div className="absolute hidden bg-white border border-gray-300 p-2 rounded text-sm -mt-10 -ml-20 pointer-events-none">
+        <div className="font-bold text-blue-600 mb-1"></div>
+        <div></div>
+      </div>
+    </div>
   );
 };
 
