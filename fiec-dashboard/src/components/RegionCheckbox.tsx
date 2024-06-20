@@ -26,7 +26,11 @@ export function RegionCheckbox({ selectedRegions, setSelectedRegions }: RegionCh
         <>
             {regioes.length && regioes.map((region) => {
                 return (
-                    <label key={region.nome} className="flex flex-row items-center max-h-6 bg-gray-200 my-2 cursor-pointer">
+                    <label key={region.nome} className="flex flex-row items-center max-h-6 rounded my-2 cursor-pointer"
+                        style={{
+                            backgroundColor: colors.LightGray2
+                        }}
+                    >
                         <Checkbox
                         checked={selectedRegions.some((selectedRegion) => selectedRegion.nome === region.nome)}
                             onChange={() => handleSelect(region)}

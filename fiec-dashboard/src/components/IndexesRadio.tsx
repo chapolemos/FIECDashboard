@@ -18,7 +18,11 @@ export const IndexesRadio = ({ selectedIndex, setSelectedIndex }: IndexesRadioPr
         <>
             {indexes.map((index) => {
                 return (<div className='flex flex-row items-center'>
-                    <label className="flex flex-row items-center max-h-6 w-full bg-gray-200 my-2 cursor-pointer">
+                    <label className="flex flex-row items-center max-h-6 w-full rounded my-2 cursor-pointer"
+                    style={{
+                        backgroundColor: colors.LightGray2
+                    }}
+                    >
                         <Radio checked={selectedIndex.value === index.value} onChange={() => setSelectedIndex(index)} />
                         <span
                             style={{

@@ -22,7 +22,10 @@ const Sidebar = () => {
   return (
     <div style={{ backgroundColor: colors.DarkSlateBlue }} className="w-48 h-screen flex flex-col justify-between max-h-screen">
       <div className="mt-2">
-        <img src={indice22} alt="Logo do Indice FIEC de Inovação dos Estados 22" className="mb-2" />
+        <img src={indice22} 
+        alt="Logo do Indice FIEC de Inovação dos Estados 22" className="mb-2" 
+        title="Logo do Indice FIEC de Inovação dos Estados 22"
+        />
       </div>
 
       <div id="navigationTabs" className="flex flex-col items-end mb-auto">
@@ -74,10 +77,22 @@ const Sidebar = () => {
         className="flex flex-col justify-end rounded-2xl m-2"
         style={{backgroundColor: colors.RoyalBlue}}
       >
-        <img src={p2i} alt="Logo Programa de Inovação Industrial" className="mb-2" />
-        <img src={obs} alt="Logo do Observatório da Indústria do Ceará" className="mb-2" />
-        <img src={fiec} alt="Logo do FIEC" className="mb-2" />
-        <img src={abdi} alt="Logo do ABDI" className="mb-2" />
+        <img src={p2i} 
+          alt="Logo Programa de Inovação Industrial" className="mb-2" 
+          title="Logo Programa de Inovação Industrial"
+        />
+        <img src={obs} 
+          alt="Logo do Observatório da Indústria do Ceará" className="mb-2" 
+          title="Logo do Observatório da Indústria do Ceará"
+        />
+        <img src={fiec} 
+          alt="Logo do FIEC" className="mb-2" 
+          title="Logo do FIEC"
+        />
+        <img src={abdi} 
+          alt="Logo do ABDI" className="mb-2" 
+          title="Logo do ABDI"
+        />
       </div>
     </div>
   );

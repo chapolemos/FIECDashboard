@@ -1,6 +1,9 @@
 import React from 'react';
 import { colorTheme } from '../theme';
 
+/*
+Cards que contém os valores dos índices, exibidos nas páginas de Perfil e Compare.
+*/
 
 const ValuesCard = ({icon, label, color}) => {
   const { colors } = colorTheme;
