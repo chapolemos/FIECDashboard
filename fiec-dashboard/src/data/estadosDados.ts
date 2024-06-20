@@ -16,6 +16,25 @@ export interface IndicesFIEC {
     empreendedorismo: number;
 }
 
+
+export enum IndicesFIECEnum {
+    indiceFIECInovacao = 'Índice FIEC de Inovação',
+    indiceCapacidades = 'Índice de Capacidades',
+    investimentoPublicoCT = 'Investimento Público em CT',
+    capitalHumanoGraduacao = 'Capital Humano Graduação',
+    capitalHumanoPosGraduacao = 'Capital Humano Pós-Graduação',
+    insercaoMestresDoutores = 'Inserção de Mestres e Doutores',
+    instituicoes = 'Instituições',
+    infraestrutura = 'Infraestrutura',
+    cooperacao = 'Cooperação',
+    indiceResultados = 'Índice de Resultados',
+    competitividadeGlobal = 'Competitividade Global',
+    intensidadeTecnologica = 'Intensidade Tecnológica',
+    propriedadeIntelectual = 'Propriedade Intelectual',
+    producaoCientifica = 'Produção Científica',
+    empreendedorismo = 'Empreendedorismo'
+}
+
 export interface Estado {
     nome: string;
     sigla: string;
@@ -707,3 +726,20 @@ export const regioes: Regiao[] = [
         ],
     },
 ];
+
+function filterRegions(regions: Regiao[], regionFilter: string[], dataToBeAnalyzed: string) {
+    const regionsFiltered = regions.filter((regiao) => regionFilter.includes(regiao.nome));
+    const states = regionsFiltered.reduce<Estado[]>((acc, regiao) => {
+        acc.push(...regiao.estados);
+
+
+        return acc;
+    }, []);
+    const data = states?.map((estado) => {
+        return {
+            sigla: estado.sigla,
+            indice: estado.dados[dataToBeAnalyzed]
+        };
+    });
+    return data;
+}

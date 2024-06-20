@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, HeaderCard, HeaderMenu, SpiderChart } from '../components';
+import { Header, HeaderCard, RegionMenu, SpiderChart } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
@@ -53,13 +53,13 @@ const Compare = () => {
                     color={colors.DarkSlateBlue}
                     backgroundColor={colors.AliceBlue}
                 />
-                <HeaderMenu
+                <RegionMenu
                     label="Selecione a primeira região"
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
-                <HeaderMenu
+                <RegionMenu
                     label="Selecione a segunda região"
                     color={colors.White}
                     backgroundColor={colors.Purple}

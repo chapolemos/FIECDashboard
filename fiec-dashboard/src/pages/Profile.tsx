@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Header,
     HeaderCard,
-    HeaderMenu,
+    RegionMenu,
     ValuesCard,
     ValuesCardHeader
 } from '../components';
@@ -70,7 +70,7 @@ const Profile = () => {
                     color={colors.DarkSlateBlue}
                     backgroundColor={colors.AliceBlue}
                 />
-                <HeaderMenu
+                <RegionMenu
                     label="Região"
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
