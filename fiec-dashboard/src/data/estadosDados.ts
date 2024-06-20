@@ -802,6 +802,68 @@ export const regioes: Regiao[] = [
     },
 ];
 
+function makeRankings(regioes: Regiao[]) {
+    const estadoRankings: Map<string, Map<string, number>> = new Map();
+    const regiaoRankings: Map<string, Map<string, number>> = new Map();
+
+    // Carregar e pré-calcular os rankings
+    const todosEstados: Estado[] = [];
+    for (const regiao of regioes) {
+        todosEstados.push(...regiao.estados);
+    }
+
+    // Calcular rankings dos estados
+    const indicesEstados = new Set<string>();
+    todosEstados.forEach(estado => {
+        Object.keys(estado.dados).forEach(indice => indicesEstados.add(indice));
+    });
+
+    indicesEstados.forEach(indice => {
+        const estadosOrdenados = todosEstados.slice().sort((a, b) => b.dados[indice] - a.dados[indice]);
+
+        const rankingMap = new Map<string, number>();
+        estadosOrdenados.forEach((estado, rank) => {
+            rankingMap.set(estado.nome, rank + 1);
+        });
+
+        estadoRankings.set(indice, rankingMap);
+    });
+
+    // Calcular rankings das regiões
+    const indicesRegioes = new Set<string>();
+    regioes.forEach(regiao => {
+        Object.keys(regiao.dados).forEach(indice => indicesRegioes.add(indice));
+    });
+
+    indicesRegioes.forEach(indice => {
+        const regioesOrdenadas = regioes.slice().sort((a, b) => b.dados[indice] - a.dados[indice]);
+
+        const rankingMap = new Map<string, number>();
+        regioesOrdenadas.forEach((regiao, rank) => {
+            rankingMap.set(regiao.nome, rank + 1);
+        });
+
+        regiaoRankings.set(indice, rankingMap);
+    });
+
+    return {
+        getEstadoRanking(estadoNome: string, indice: string): number | null {
+            const rankingMap = estadoRankings.get(indice);
+            if (rankingMap && rankingMap.has(estadoNome)) {
+                return rankingMap.get(estadoNome) || null;
+            }
+            return null;
+        },
+        getRegiaoRanking(regiaoNome: string, indice: string): number | null {
+            const rankingMap = regiaoRankings.get(indice);
+            if (rankingMap && rankingMap.has(regiaoNome)) {
+                return rankingMap.get(regiaoNome) || null;
+            }
+            return null;
+        }
+    };
+}
+
 function filterRegions(regions: Regiao[], regionFilter: string[], dataToBeAnalyzed: string) {
     const regionsFiltered = regions.filter((regiao) => regionFilter.includes(regiao.nome));
     const states = regionsFiltered.reduce<Estado[]>((acc, regiao) => {

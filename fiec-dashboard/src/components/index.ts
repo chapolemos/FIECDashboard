@@ -14,6 +14,6 @@ import ValuesCardHeader from "./ValuesCardHeader";
 import { RegionCheckbox } from "./RegionCheckbox";
 import IndexesMenu from "./IndexesMenu";
 import StatesMenu from "./StatesMenu"
+import DataTable from "./DataTable";
 
-
-export { Header, HeaderCard, RegionMenu, Sidebar, BrazilMap, BarChart, IndexesMenu, SpiderChart, ValuesCard, ValuesCardHeader, RegionCheckbox};
+export { Header, HeaderCard, RegionMenu, Sidebar, BrazilMap, BarChart, IndexesMenu, SpiderChart, ValuesCard, ValuesCardHeader, RegionCheckbox, DataTable};
