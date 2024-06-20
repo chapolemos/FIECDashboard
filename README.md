@@ -7,6 +7,9 @@ O projeto simula o pedido de um cliente para uma aplicação front-end feita par
 ## Observações 
 Os arquivos de código possuem um bloco de comentários no início de cada um para explicar a função e o objetivo de cada arquivo com mais detalhes.
 
+## Responsividade 
+Diversos componentes possuem variações pra tamanhos de monitor médio e grande nos seus className do Tailwind. A aplicação foi projetada para ser utilizável em um monitor 1366x768, porém possui bem mais espaço de respiro e legibilidade num monitor 1920x1080.
+
 ## SEO 
 Incluí meta tags de html, robots.txt e um sitemap.xml para questões de SEO no projeto. Ainda que esse projeto fosse uma SPA rodada localmente, como era a simulação de um projeto de um cliente, poderia ser relevante para o projeto do mesmo ser mais facilmente encontrável por meio de search engines.
 
