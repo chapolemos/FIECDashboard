@@ -53,7 +53,7 @@ const Ranking = () => {
           label="Selecione um Indicador"
           color={colors.White}
           backgroundColor={colors.DodgerBlue}
-          items={regioes.map(regiao => ({ nome: regiao.nome }))}
+          items={indexes}
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
@@ -68,18 +68,17 @@ const Ranking = () => {
       </Header>
 
       <div className="flex items-center justify-center my-8">
-        <h2 className=""
-          style={{
-            color: colors.DarkSlateBlue,
-          fontWeight:'bold',
-          }}
-        >Índice FIEC de inovação</h2>
+        <h2 style={{ color: colors.DarkSlateBlue, fontWeight: 'bold' }}>
+          Índice FIEC de inovação
+        </h2>
       </div>
 
       <div className="flex flex-row">
-        <BrazilMap highlightedStates={highlightedStates}></BrazilMap>
+        <BrazilMap data = {indexData} highlightedStates={highlightedStates} />
         <div>
-          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={indexData} /></div>
+          <div className='bg-white px-10 py-2 rounded-xl'>
+            <BarChart data={indexData} />
+          </div>
         </div>
       </div>
     </>

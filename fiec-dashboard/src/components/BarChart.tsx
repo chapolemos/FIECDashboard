@@ -33,6 +33,7 @@ const BarChart = ({ data }) => {
       .call(d3.axisLeft(y))
       .selectAll('text')
       .style('fill', 'black'); 
+
     const colorScale = d3.scaleSequential()
       .domain([-0.5, 1]) 
       .interpolator(d3.interpolateBlues);
@@ -47,7 +48,7 @@ const BarChart = ({ data }) => {
       .attr('height', y.bandwidth())
       .attr('fill', d => colorScale(d.indice / d3.max(data, d => d.indice)))
       .on('mouseover', function () {
-        d3.select(this).attr('fill', 'orange');
+        d3.select(this).attr('fill', 'skyblue');
       })
       .on('mouseout', function (event, d) {
         d3.select(this).attr('fill', colorScale(d.indice / d3.max(data, d => d.indice)));

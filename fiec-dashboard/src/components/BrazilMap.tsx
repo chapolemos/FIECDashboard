@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import brazilGeoJson from '../data/br.json';
 
-const BrazilMap = ({ highlightedStates }) => {
+const BrazilMap = ({ data, highlightedStates }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -25,6 +25,11 @@ const BrazilMap = ({ highlightedStates }) => {
 
     const geojson = brazilGeoJson;
 
+    const indexValues = data.map(d => d.indice);
+    const colorScale = d3.scaleSequential()
+      .domain([0, d3.max(indexValues)])
+      .interpolator(d3.interpolateBlues);
+
     svg.append('g')
       .selectAll('path')
       .data(geojson.features)
@@ -33,18 +38,30 @@ const BrazilMap = ({ highlightedStates }) => {
       .attr('d', path)
       .attr('fill', feature => {
         const stateId = feature.properties.id;
-        return highlightedStates.includes(stateId) ? 'orange' : 'steelblue';
+        
+        const stateIndexData = data.find(d => d.sigla === stateId);
+        if (stateIndexData) {
+          return colorScale(stateIndexData.indice);
+        } else {
+          return 'lightblue';
+        }
       })
       .attr('stroke', 'white')
       .attr('stroke-width', 1)
       .on('mouseover', function () {
-        d3.select(this).attr('fill', 'orange');
+        d3.select(this).attr('fill', 'skyblue');
       })
       .on('mouseout', function (event, feature) {
         const stateId = feature.properties.id;
-        d3.select(this).attr('fill', highlightedStates.includes(stateId) ? 'orange' : 'steelblue');
+        const stateIndexData = data.find(d => d.sigla === stateId);
+        if (stateIndexData) {
+          d3.select(this).attr('fill', colorScale(stateIndexData.indice));
+        } else {
+          d3.select(this).attr('fill', 'lightblue'); 
+        }
       });
-  }, [highlightedStates]);
+
+  }, [data, highlightedStates]);
 
   return (
     <div ref={mapRef} />
