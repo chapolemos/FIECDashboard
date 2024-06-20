@@ -4,6 +4,10 @@ import d3Tip from 'd3-tip';
 import brazilGeoJson from '../data/br.json';
 import 'tailwindcss/tailwind.css';
 
+/*
+Mapa coroplético do brasil feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Ranking.
+*/
+
 const BrazilMap = ({ data, highlightedStates }) => {
   const mapRef = useRef(null);
   const tip = useRef(null);

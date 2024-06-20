@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { RegionCheckbox } from './RegionCheckbox';
 
+/*
+Menu drop-down de caixas de seleção usado para escolher as regiões a exibirem dados na página de Ranking.
+*/
+
 const RegionMenu = ({ label, color, backgroundColor, items, selectedRegions, setSelectedRegions }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);

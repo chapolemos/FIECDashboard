@@ -1,5 +1,9 @@
 import React from 'react';
 
+/*
+Header simples para conter o card da página e os botões de dropdown menu.
+*/
+
 const Header = ({ children }) => {
     return (
         <div 

@@ -4,6 +4,8 @@ Esse projeto é a reprodução de um dashboard disponibilizado em Power BI feito
 
 O repositório conta com as pastas para o front-end do projeto (fiec-dashboard) e o back-end (fiec-backend).
 
+## Observações 
+Os arquivos de código possuem um bloco de comentários no início de cada um para explicar a função e o objetivo de cada arquivo com mais detalhes.
 
 # Bibliotecas Utilizadas
 

@@ -1,3 +1,7 @@
+/*
+Index de exports dos componentes.
+*/
+
 import Header from "./Header";
 import HeaderCard from "./HeaderCard";
 import Sidebar from "./Sidebar";
@@ -9,6 +13,7 @@ import SpiderChart from "./SpiderChart";
 import ValuesCardHeader from "./ValuesCardHeader";
 import { RegionCheckbox } from "./RegionCheckbox";
 import IndexesMenu from "./IndexesMenu";
+import StatesMenu from "./StatesMenu"
 
 
 export { Header, HeaderCard, RegionMenu, Sidebar, BrazilMap, BarChart, IndexesMenu, SpiderChart, ValuesCard, ValuesCardHeader, RegionCheckbox};

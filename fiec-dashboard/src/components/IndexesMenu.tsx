@@ -4,6 +4,10 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import {IndexesRadio} from '../components/IndexesRadio'
 import { colorTheme } from '../theme';
 
+/*
+Menu drop-down de radio buttons usado para escolher o índice a ser visualizado na página de Ranking.
+*/
+
 const IndexesMenu = ({ label, color, backgroundColor, items, selectedIndex, setSelectedIndex }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);

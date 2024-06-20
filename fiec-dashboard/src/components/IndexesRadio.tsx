@@ -3,6 +3,10 @@ import { indexes, Index } from '../data/estadosDados';
 import { Radio } from '@mui/material';
 import { colorTheme } from '../theme';
 
+/*
+Componente de RadioButton baseado no material-UI para construir o IndexesMenu.
+*/
+
 interface IndexesRadioProps {
     selectedIndex: Index;
     setSelectedIndex: (index: Index) => void;

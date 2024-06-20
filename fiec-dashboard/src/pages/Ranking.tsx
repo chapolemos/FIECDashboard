@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { regioes, IndicesFIECEnum, Regiao, Estado, Index, indexes } from '../data/estadosDados';
 
-const estoRank = [
-  { UF: 'SP', PosicaoRanking: 10, ValorRanking: 0.796 },
-  { UF: 'SC', PosicaoRanking: 2, ValorRanking: 0.508 },
-  { UF: 'RS', PosicaoRanking: 3, ValorRanking: 0.448 },
-  { UF: 'TO', PosicaoRanking: 1, ValorRanking: 0.072 }
-];
+/* 
+Página de exibição de um mapa coroplético do país e de um gráfico de barras, ambos mostrando a informação
+referente ao índice escolhido para ser exibido. 
+A página possui filtragem de quais regiões devem ter seus dados mostrados por meio de um dropdown menu.
+*/
+
 
 function filterRegions(regions: Regiao[], dataToBeAnalyzed: string) {
   const states = regions.reduce<Estado[]>((acc, regiao) => {

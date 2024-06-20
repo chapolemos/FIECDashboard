@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
+/*
+Gráfico de barras feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Ranking.
+*/
+
 const BarChart = ({ data }) => {
   const chartRef = useRef(null);
 

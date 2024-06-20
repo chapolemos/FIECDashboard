@@ -3,6 +3,10 @@ import Checkbox from '@mui/material/Checkbox';
 import { Regiao, regioes } from '../data/estadosDados';
 import { colorTheme } from '../theme';
 
+/*
+Componente de Checkbox baseado no material-UI para construir o RegionMenu.
+*/
+
 interface RegionCheckboxInterface {
     selectedRegions: Regiao[];
     setSelectedRegions: (regions: Regiao[]) => void;

@@ -1,3 +1,10 @@
+
+/*
+Massa de dados usada para alimentar a aplicação, assim como interfaces para a construção de objetos de maneira adequada.
+A massa de dados aqui foi instanciada manualmente, porém poderia receber um objeto processado em um back-end, a fim de
+evitar processamento extensivo no front-end, o que poderia causar lentidão para o usuário. Os objetos foram pensados
+de maneira a reduzir a complexidade de tempo de sua iteração para evitar tempos de O(n²).
+*/
 export interface IndicesFIEC {
     indiceFIECInovacao: number;
     indiceCapacidades: number;

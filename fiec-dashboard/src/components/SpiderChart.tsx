@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
+/*
+Gráfico de radar feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Perfil e Compare.
+*/
+
 export interface EstadoData {
   indiceFIECInovacao: number;
   indiceCapacidades: number;

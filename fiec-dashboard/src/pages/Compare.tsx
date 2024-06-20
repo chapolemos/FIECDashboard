@@ -3,7 +3,11 @@ import { Header, HeaderCard, RegionMenu, SpiderChart, ValuesCard } from '../comp
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest, faEarthAmerica, faSliders, faRocket } from '@fortawesome/free-solid-svg-icons';
-import { StatesMenu } from '../components'
+
+/* 
+Página de comparação de dados entre dois estados/regiões. 
+Exibe também um gráfico de radar com a comparação entre os índices de ambos os itens selecionados.
+*/
 
 export const mockEstados = [
     {
@@ -74,7 +78,7 @@ const Compare = () => {
                     items={mockEstados}
                 />
             </Header>
-            <div className="p-4 flex flex-1 -mt-4 flex-row justify-center bg-black">
+            <div className="p-4 flex flex-1 -mt-4 flex-row justify-center">
                 <div className="flex-1 max-w-xl mx-16">
 
                 </div>

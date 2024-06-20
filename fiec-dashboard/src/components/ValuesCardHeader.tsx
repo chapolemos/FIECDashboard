@@ -1,7 +1,10 @@
 import React from 'react';
 import { colorTheme } from '../theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+
+
+/*
+Header que contém cada seção de cards de valor na página de Perfil.
+*/
 
 const ValuesCardHeader = ({color, icon}) => {
   const { colors } = colorTheme;

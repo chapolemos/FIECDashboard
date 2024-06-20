@@ -1,5 +1,9 @@
 import React from 'react';
 
+/*
+Card feito para identificar a página atualmente exibida, colocado no header.
+*/
+
 const HeaderCard = ({ icon, label, color, backgroundColor }) => {
   return (
     <div 

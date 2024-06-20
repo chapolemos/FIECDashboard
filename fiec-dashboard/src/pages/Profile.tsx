@@ -17,8 +17,13 @@ import { faFileLines, faEnvelope, faSackDollar,
 } from '@fortawesome/free-solid-svg-icons'; 
 import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
+import {StateCheckbox} from '../components/StateCheckbox'
 
-const acreData = {
+/* 
+Página de exibição dos índices de um estado/região escolhido em cards e gráfico de radar. 
+*/
+
+    const acreData = {
     indiceFIECInovacao: 0.8,
     indiceCapacidades: 0.7,
     investimentoPublicoCT: 0.6,
@@ -76,8 +81,10 @@ const Profile = () => {
                     backgroundColor={colors.DodgerBlue}
                     items={mockEstados}
                 />
+                <StateCheckbox></StateCheckbox>
+
             </Header>
-            <div className="p-4 flex -mt-4 flex-row justify-center h-auto bg-black">
+            <div className="p-4 flex -mt-4 flex-row justify-center h-auto">
                 <div className="flex-1 max-w-xl mx-16">
                     <div className="">
                         <ValuesCardHeader 
