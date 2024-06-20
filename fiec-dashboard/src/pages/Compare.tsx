@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Header, HeaderCard, RegionMenu, SpiderChart, ValuesCard } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest, faEarthAmerica, faSliders, faRocket } from '@fortawesome/free-solid-svg-icons';
-
+import { DataTable } from '../components';
+import { Estado, Regiao, regioes } from '../data/estadosDados';
+import StatesMenu from '../components/StatesMenu';
 /* 
 Página de comparação de dados entre dois estados/regiões. 
 Exibe também um gráfico de radar com a comparação entre os índices de ambos os itens selecionados.
@@ -55,6 +57,9 @@ const acreData = {
 
 
 const Compare = () => {
+    const [selectedState1, setSelectedState1] = useState<Estado | Regiao>(regioes[0]);
+    const [selectedState2, setSelectedState2] = useState<Estado | Regiao>(regioes[1]);
+
     const { colors } = colorTheme;
     const cardsGeneral = [
         { label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
@@ -71,21 +76,27 @@ const Compare = () => {
                     color={colors.DarkSlateBlue}
                     backgroundColor={colors.AliceBlue}
                 />
-                <RegionMenu
+                <StatesMenu
                     label="Selecione a primeira região"
+                    selectedStates={selectedState1}
+                    setSelectedStates={setSelectedState1}
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
-                    items={mockEstados}
+                    items={regioes}
                 />
-                <RegionMenu
+                <StatesMenu
                     label="Selecione a segunda região"
+                    selectedStates={selectedState2}
+                    setSelectedStates={setSelectedState2}
                     color={colors.White}
                     backgroundColor={colors.Purple}
-                    items={mockEstados}
+                    items={regioes}
                 />
             </Header>
             <div className="p-4 flex flex-1 -mt-4 flex-row justify-center">
-                <div className="flex-1 max-w-xl mx-12">
+                <div className="flex-1 flex-col max-w-xl mx-12">
+                    <DataTable data1 = {selectedState1} data2= {selectedState2} mode = 'Capacidades'></DataTable>
+                    <DataTable data1 = {selectedState1} data2= {selectedState2} mode = 'Resultados'></DataTable>
 
                 </div>
                 <div className="flex flex-col flex-1 mt-8 mx-12 rounded-lg max-w-2xl min-w-[32rem] shadow-md" style={{ backgroundColor: colors.White }}>
