@@ -15,7 +15,7 @@ const ValuesCard = ({icon, label, color}) => {
       </div>
 
       <div
-        className="py-2 w-40 h-24 mx-4 rounded flex items-center justify-between"
+        className="py-2 w-40 h-24 mx-4 rounded flex items-center justify-between shadow-md"
         style={{ color: colors.DarkSlateBlue, backgroundColor: colors.White }}
       >
         <div 
@@ -61,7 +61,7 @@ const ValuesCard = ({icon, label, color}) => {
         </div>
       </div>
       <div
-        className="w-40 h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center"
+        className="w-40 h-6 -mt-4 mx-8 rounded-lg flex items-center justify-center shadow-md"
         style={{ color: colors.White, backgroundColor: color }}
       >
         <span style={{

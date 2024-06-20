@@ -29,9 +29,9 @@ const SpiderChart: React.FC<SpiderChartProps> = ({ data }) => {
   useEffect(() => {
     d3.select(chartRef.current).select('svg').remove();
 
-    const margin = { top: 50, right: 80, bottom: 50, left: 80 };
-    const width = 400;
-    const height = 400;
+    const margin = { top: 20, right: 60, bottom: 20, left: 60 };
+    const width = 300;
+    const height = 300;
     const radius = Math.min(width, height) / 2 - margin.top;
 
     const svg = d3.select(chartRef.current)

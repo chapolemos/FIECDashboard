@@ -77,9 +77,9 @@ const Profile = () => {
                     items={mockEstados}
                 />
             </Header>
-            <div className="p-4 flex -mt-4 flex-row justify-center">
-                <div className="flex-1 m4-5 max-w-xl mx-16">
-                    <div className="m4-5">
+            <div className="p-4 flex -mt-4 flex-row justify-center h-auto bg-black">
+                <div className="flex-1 max-w-xl mx-16">
+                    <div className="">
                         <ValuesCardHeader 
                             color={colors.DodgerBlue} 
                             icon={<FontAwesomeIcon icon={faGraduationCap} size='lg' />}
@@ -114,7 +114,7 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 mx-16 rounded-lg max-w-2xl" style={{backgroundColor:colors.White}}>
+                <div className="flex flex-col flex-1 mt-8 mx-16 rounded-lg max-w-2xl shadow-md" style={{backgroundColor:colors.White}}>
                     <div className="flex flex-col">
                         <span 
                             className="self-center m-4"
@@ -134,10 +134,13 @@ const Profile = () => {
                                 />
                             ))}
                         </div>
+                        <div className='self-center'>
+                            <SpiderChart data={acreData} ></SpiderChart>
+                        </div>
+
                     </div>
-                    <SpiderChart data={acreData} ></SpiderChart>
                     </div>
-            </div>
+                </div>
         </>
     );
 };

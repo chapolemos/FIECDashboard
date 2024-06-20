@@ -17,7 +17,7 @@ const ValuesCardHeader = ({color, icon}) => {
 
       
       <div
-        className="w-[36rem] h-6 rounded-lg flex items-center justify-start"
+        className="w-[36rem] h-6 rounded-lg flex items-center justify-start shadow-md"
         style={{ color: '#FFFFFF', backgroundColor: color }}
       >
         <span style={{
