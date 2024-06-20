@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import d3Tip from 'd3-tip';
 import brazilGeoJson from '../data/br.json';
-import 'tailwindcss/tailwind.css';
+import './tooltip.css'; 
 
 /*
 Mapa coroplético do brasil feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Ranking.
@@ -44,9 +44,12 @@ const BrazilMap = ({ data, highlightedStates }) => {
         const stateId = d.properties.id;
         const stateIndexData = data.find(data => data.sigla === stateId);
         if (stateIndexData) {
-          return `<div><strong>${stateId}</strong>: ${stateIndexData.indice}</div>`;
+          return `
+            <div class="title"><strong>${stateId}</strong></div>
+            <div class="value">${stateIndexData.indice}</div>`;
         }
-        return stateId;
+        return `<div class="title">${stateId}</div>
+              <div class="value">No data</div>`;
       });
 
     svg.call(tip.current);
