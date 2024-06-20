@@ -35,6 +35,74 @@ export enum IndicesFIECEnum {
     empreendedorismo = 'Empreendedorismo'
 }
 
+export interface Index {
+    value: string;
+    label: string;
+}
+
+export const indexes: Index[] = [
+    {
+        value: 'indiceFIECInovacao',
+        label: 'Índice FIEC de Inovação'
+    },
+    {
+        value: 'indiceCapacidades',
+        label: 'Índice de Capacidades'
+    },
+    {
+        value: 'investimentoPublicoCT',
+        label: 'Investimento Público em CT'
+    },
+    {
+        value: 'capitalHumanoGraduacao',
+        label: 'Capital Humano Graduação'
+    },
+    {
+        value: 'capitalHumanoPosGraduacao',
+        label: 'Capital Humano Pós-Graduação'
+    },
+    {
+        value: 'insercaoMestresDoutores',
+        label: 'Inserção de Mestres e Doutores'
+    },
+    {
+        value: 'instituicoes',
+        label: 'Instituições'
+    },
+    {
+        value: 'infraestrutura',
+        label: 'Infraestrutura'
+    },
+    {
+        value: 'cooperacao',
+        label: 'Cooperação'
+    },
+    {
+        value: 'indiceResultados',
+        label: 'Índice de Resultados'
+    },
+    {
+        value: 'competitividadeGlobal',
+        label: 'Competitividade Global'
+    },
+    {
+        value: 'intensidadeTecnologica',
+        label: 'Intensidade Tecnológica'
+    },
+    {
+        value: 'propriedadeIntelectual',
+        label: 'Propriedade Intelectual'
+    },
+    {
+        value: 'producaoCientifica',
+        label: 'Produção Científica'
+    },
+    {
+        value: 'empreendedorismo',
+        label: 'Empreendedorismo'
+    }
+]
+
 export interface Estado {
     nome: string;
     sigla: string;

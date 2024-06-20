@@ -8,6 +8,7 @@ import ValuesCard from "./ValuesCard"
 import SpiderChart from "./SpiderChart";
 import ValuesCardHeader from "./ValuesCardHeader";
 import { RegionCheckbox } from "./RegionCheckbox";
+import IndexesMenu from "./IndexesMenu";
 
 
-export { Header, HeaderCard, RegionMenu, Sidebar, BrazilMap, BarChart, SpiderChart, ValuesCard, ValuesCardHeader, RegionCheckbox};
+export { Header, HeaderCard, RegionMenu, Sidebar, BrazilMap, BarChart, IndexesMenu, SpiderChart, ValuesCard, ValuesCardHeader, RegionCheckbox};

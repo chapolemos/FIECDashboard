@@ -6,8 +6,8 @@ const BarChart = ({ data }) => {
 
   useEffect(() => {
     const margin = { top: 20, right: 60, bottom: 20, left: 60 };
-    const width = 200;
-    const height = 500;
+    const width = 400;
+    const height = 600;
 
     d3.select(chartRef.current).select('svg').remove();
 
@@ -19,13 +19,14 @@ const BarChart = ({ data }) => {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const x = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.ValorRanking)])
+      .domain([0, d3.max(data, d => d.indice)])
       .range([0, width]);
 
     const y = d3.scaleBand()
-      .domain(data.map(d => d.UF))
+      .domain(data.map(d => d.sigla))
       .range([0, height])
-      .padding(0.1);
+      .padding(0.2);
+      
 
     svg.append('g')
       .attr('class', 'y-axis')
@@ -41,15 +42,15 @@ const BarChart = ({ data }) => {
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('y', d => y(d.UF))
-      .attr('width', d => x(d.ValorRanking))
+      .attr('y', d => y(d.sigla))
+      .attr('width', d => x(d.indice))
       .attr('height', y.bandwidth())
-      .attr('fill', d => colorScale(d.ValorRanking / d3.max(data, d => d.ValorRanking)))
+      .attr('fill', d => colorScale(d.indice / d3.max(data, d => d.indice)))
       .on('mouseover', function () {
         d3.select(this).attr('fill', 'orange');
       })
       .on('mouseout', function (event, d) {
-        d3.select(this).attr('fill', colorScale(d.ValorRanking / d3.max(data, d => d.ValorRanking)));
+        d3.select(this).attr('fill', colorScale(d.indice / d3.max(data, d => d.indice)));
       });
 
     svg.selectAll('.label')
@@ -57,11 +58,23 @@ const BarChart = ({ data }) => {
       .enter()
       .append('text')
       .attr('class', 'label')
-      .attr('x', d => x(d.ValorRanking) + 5)
-      .attr('y', d => y(d.UF) + y.bandwidth() / 2)
+      .attr('x', d => x(d.indice) + 5)
+      .attr('y', d => y(d.sigla) + y.bandwidth() / 2)
       .attr('dy', '.35em') 
       .attr('fill', 'black')
-      .text(d => d.ValorRanking);
+      .text(d => d.indice);
+
+      svg.selectAll('.rank')
+      .data(data)
+      .enter()
+      .append('text')
+      .attr('class', 'rank')
+      .attr('x',-28)
+      .attr('y', d => y(d.sigla) + y.bandwidth() / 2)
+      .attr('dy', '.35em')
+      .attr('fill', 'black')
+      .style('text-anchor', 'end')
+      .text((d, i) => `${i + 1}`);
 
   }, [data]);
 

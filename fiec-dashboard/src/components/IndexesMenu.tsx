@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { RegionCheckbox } from './RegionCheckbox';
+import {IndexesRadio} from '../components/IndexesRadio'
+import { colorTheme } from '../theme';
 
-const RegionMenu = ({ label, color, backgroundColor, items, selectedRegions, setSelectedRegions }) => {
+const IndexesMenu = ({ label, color, backgroundColor, items, selectedIndex, setSelectedIndex }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
+  const { colors } = colorTheme;
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -43,13 +44,16 @@ const RegionMenu = ({ label, color, backgroundColor, items, selectedRegions, set
       {dropdownOpen && items && items.length > 0 && (
         <div
           ref={dropdownRef}
-          className="absolute bg-white min-w-64 shadow-md rounded-lg mt-12 py-2 px-4 z-20"
+          className="absolute min-w-64 shadow-md rounded-lg mt-12 py-2 px-4 z-20"
+          style={{
+            backgroundColor:colors.White
+          }}
         >
-          <RegionCheckbox selectedRegions={selectedRegions} setSelectedRegions={setSelectedRegions}></RegionCheckbox>
+          <IndexesRadio selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
         </div>
       )}
     </div>
   );
 };
 
-export default RegionMenu;
+export default IndexesMenu;

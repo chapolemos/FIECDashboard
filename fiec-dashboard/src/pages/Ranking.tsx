@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Header, HeaderCard, RegionMenu, BrazilMap, BarChart, RegionCheckbox } from '../components';
+import { Header, HeaderCard, RegionMenu, BrazilMap, BarChart, IndexesMenu } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import { regioes, IndicesFIECEnum, Regiao, Estado } from '../data/estadosDados';
+import { regioes, IndicesFIECEnum, Regiao, Estado, Index, indexes } from '../data/estadosDados';
 
 const estoRank = [
   { UF: 'SP', PosicaoRanking: 10, ValorRanking: 0.796 },
@@ -12,9 +12,8 @@ const estoRank = [
   { UF: 'TO', PosicaoRanking: 1, ValorRanking: 0.072 }
 ];
 
-function filterRegions(regions: Regiao[], regionFilter: string[], dataToBeAnalyzed: string) {
-  const regionsFiltered = regions.filter((regiao) => regionFilter.includes(regiao.nome));
-  const states = regionsFiltered.reduce<Estado[]>((acc, regiao) => {
+function filterRegions(regions: Regiao[], dataToBeAnalyzed: string) {
+  const states = regions.reduce<Estado[]>((acc, regiao) => {
       acc.push(...regiao.estados);
       return acc;
   }, []);
@@ -24,49 +23,22 @@ function filterRegions(regions: Regiao[], regionFilter: string[], dataToBeAnalyz
           indice: estado.dados[dataToBeAnalyzed]
       };
   });
-  return data;
+  const orderedData = data.sort((a,b) => b.indice - a.indice);
+  const rankedData = orderedData.map((data, index) => ({...data, rank: index + 1}));
+  return rankedData;
 }
-
-const mockIndices = [
-  {
-    nome: 'Indice Fiec #1',
-    value: 'indiceFIECInovacao'
-  },
-  {
-    nome: 'Indice Fiec #2',
-    value: 'indiceCapacidades'
-  },
-  {
-    nome: 'Indice Fiec #3',
-    value: 'investimentoPublicoCT'
-  },
-  {
-    nome: 'Indice Fiec #4',
-    value: 'capitalHumanoGraduacao'
-  },
-  {
-    nome: 'Indice Fiec #5',
-    value: 'capitalHumanoPosGraduacao'
-  },
-];
 
 const Ranking = () => {
   const { colors } = colorTheme;
   const [selectedRegions, setSelectedRegions] = useState<Regiao[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<Index>(indexes[0]);
 
   const highlightedStates = selectedRegions.reduce<string[]>((acc, region) => {
     acc.push(...region.estados.map((estado) => estado.sigla));
     return acc;
   }, []);
 
-  const geraListaLateral = (indice?: IndicesFIECEnum, siglas?: string[]) => {
-    if (!siglas) return []; // Retorna um array vazio se não houver siglas
-
-    const dados = regioes.filter(r =>
-      r.estados.some(estado => siglas.includes(estado.sigla))
-    );
-    console.log(dados);
-  };
+  const indexData = filterRegions(selectedRegions, selectedIndex.value);
 
   return (
     <>
@@ -77,7 +49,14 @@ const Ranking = () => {
           color={colors.DarkSlateBlue}
           backgroundColor={colors.AliceBlue}
         />
-        
+        <IndexesMenu
+          label="Selecione um Indicador"
+          color={colors.White}
+          backgroundColor={colors.DodgerBlue}
+          items={regioes.map(regiao => ({ nome: regiao.nome }))}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={setSelectedIndex}
+        />
         <RegionMenu
           label="Tipo de Regionalização"
           color={colors.White}
@@ -100,7 +79,7 @@ const Ranking = () => {
       <div className="flex flex-row">
         <BrazilMap highlightedStates={highlightedStates}></BrazilMap>
         <div>
-          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={estoRank} /></div>
+          <div className='bg-white px-10 py-2 rounded-xl'><BarChart data={indexData} /></div>
         </div>
       </div>
     </>

@@ -10,7 +10,8 @@
       Navy: '#00408d',           // Usado pros índices de inovação e alguns textos.
       Turquoise: '#3bc3df',      // Usado pros índices de Resultados 
       MidnightBlue: '#094780',   // Usado na tabela da aba de compare e textos.
-      LightGray: '#cfd9db'       // Usado no componente circular que contém o icone dos cards de valores.
+      LightGray: '#cfd9db',     // Usado no componente circular que contém o icone dos cards de valores.
+      DarkGray: '#a9a9a9'
     },
   }
   /*
