@@ -1,11 +1,12 @@
 import React from 'react';
 import { colorTheme } from '../theme';
+import { rankings } from '../data/estadosDados';
 
 /*
 Cards que contém os valores dos índices, exibidos nas páginas de Perfil e Compare.
 */
 
-const ValuesCard = ({icon, label, color}) => {
+const ValuesCard = ({icon, label, color, value, selectedRegion}) => {
   const { colors } = colorTheme;
   return (
     <div className="flex flex-col items-center ">
@@ -58,7 +59,7 @@ const ValuesCard = ({icon, label, color}) => {
            fontWeight: 'bold',
            color: colors.MidnightBlue
            }}
-         >0,349</span>
+         >{ value }</span>
         </div>
       </div>
       <div

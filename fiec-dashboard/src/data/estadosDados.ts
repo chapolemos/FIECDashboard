@@ -802,6 +802,9 @@ export const regioes: Regiao[] = [
     },
 ];
 
+
+export const rankings = makeRankings(regioes);
+
 function makeRankings(regioes: Regiao[]) {
     const estadoRankings: Map<string, Map<string, number>> = new Map();
     const regiaoRankings: Map<string, Map<string, number>> = new Map();

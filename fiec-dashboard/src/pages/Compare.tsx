@@ -62,9 +62,9 @@ const Compare = () => {
 
     const { colors } = colorTheme;
     const cardsGeneral = [
-        { label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
-        { label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue },
-        { label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise },
+        { value: 'indiceFIECInovacao', label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
+        { value: 'indiceCapacidades', label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue },
+        { value: 'indiceResultados', label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise },
     ];
     return (
         <>
@@ -108,7 +108,7 @@ const Compare = () => {
                                 fontWeight: 'bold',
                                 color: colors.MidnightBlue
                             }}
-                        >Alagoas</span>
+                        >{selectedState1.nome}</span>
                         <div className="grid grid-cols-3 gap-4 my-2 mx-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
@@ -116,6 +116,8 @@ const Compare = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    value={selectedState1.dados[card.value]}
+                                    selectedRegion={selectedState1}
                                 />
                             ))}
                         </div>
@@ -126,7 +128,7 @@ const Compare = () => {
                                 fontWeight: 'bold',
                                 color: colors.MidnightBlue
                             }}
-                        >Ceará</span>
+                        >{selectedState2.nome}</span>
                         <div className="grid grid-cols-3 gap-4 my-2 mx-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
@@ -134,6 +136,8 @@ const Compare = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    value={selectedState2.dados[card.value]}
+                                    selectedRegion={selectedState2}
                                 />
                             ))}
                         </div>

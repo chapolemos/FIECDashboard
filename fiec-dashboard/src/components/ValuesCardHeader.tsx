@@ -6,7 +6,7 @@ import { colorTheme } from '../theme';
 Header que contém cada seção de cards de valor na página de Perfil.
 */
 
-const ValuesCardHeader = ({color, icon}) => {
+const ValuesCardHeader = ({color, icon, label}) => {
   const { colors } = colorTheme;
   return (
     <div className="flex mt-4 flex-col items-start">
@@ -28,7 +28,7 @@ const ValuesCardHeader = ({color, icon}) => {
           fontSize: 14,
         }}
         className="mx-16"
-        >Capacidades</span>
+        >{label}</span>
       </div>
 
     </div>

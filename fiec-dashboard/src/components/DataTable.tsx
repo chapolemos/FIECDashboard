@@ -3,7 +3,6 @@ import { colorTheme } from '../theme';
 
 const TableComponent = ({data1, data2, mode}) => {
     const { colors } = colorTheme;
-    console.log("Tome:",data1, data2)
     return (
         <table className='w-full my-16 text-center' style={{ borderCollapse: 'collapse' }}>
             <thead style={{

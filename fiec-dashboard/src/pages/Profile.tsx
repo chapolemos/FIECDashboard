@@ -55,25 +55,25 @@ const Profile = () => {
     const { colors } = colorTheme;
 
     const cardsCapacities = [
-        { label: 'Investimento público em C&T', icon: faSackDollar },
-        { label: 'Capital Humano - Graduação', icon: faGraduationCap },
-        { label: 'Capital Humano - Pós-Graduação', icon: faGraduationCap },
-        { label: 'Inserção de Mestres e Doutores', icon: faGraduationCap },
-        { label: 'Instituições', icon: faBuildingColumns },
-        { label: 'Infraestrutura', icon: faGear },
-        { label: 'Cooperação', icon: faPeopleGroup },
+        { value: 'investimentoPublicoCT', label: 'Investimento público em C&T', icon: faSackDollar },
+        { value: 'capitalHumanoGraduacao', label: 'Capital Humano - Graduação', icon: faGraduationCap },
+        { value: 'capitalHumanoPosGraduacao', label: 'Capital Humano - Pós-Graduação', icon: faGraduationCap },
+        { value: 'insercaoMestresDoutores', label: 'Inserção de Mestres e Doutores', icon: faGraduationCap },
+        { value: 'instituicoes', label: 'Instituições', icon: faBuildingColumns },
+        { value: 'infraestrutura', label: 'Infraestrutura', icon: faGear },
+        { value: 'cooperacao', label: 'Cooperação', icon: faPeopleGroup },
     ];
     const cardsResults = [
-        { label: 'Competitividade Global', icon: faGlobe },
-        { label: 'Intensidade Tecnológica', icon: faMicrochip },
-        { label: 'Propriedade Intelectual', icon: faShieldHalved },
-        { label: 'Produção Científica', icon: faBookOpen },
-        { label: 'Empreendedorismo', icon: faMoneyBill1Wave },
+        { value: 'competitividadeGlobal', label: 'Competitividade Global', icon: faGlobe },
+        { value: 'intensidadeTecnologica', label: 'Intensidade Tecnológica', icon: faMicrochip },
+        { value: 'propriedadeIntelectual', label: 'Propriedade Intelectual', icon: faShieldHalved },
+        { value: 'producaoCientifica', label: 'Produção Científica', icon: faBookOpen },
+        { value: 'empreendedorismo', label: 'Empreendedorismo', icon: faMoneyBill1Wave },
     ];
     const cardsGeneral = [
-        { label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
-        { label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue },
-        { label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise },
+        { value: 'indiceFIECInovacao', label: 'Índice FIEC de Inovação', icon: faEarthAmerica, color: colors.MidnightBlue },
+        { value: 'indiceCapacidades', label: 'Índice de Capacidades', icon: faSliders, color: colors.DodgerBlue },
+        { value: 'indiceResultados', label: 'Índice de Resultados', icon: faRocket, color: colors.Turquoise },
     ];
 
     return (
@@ -102,7 +102,10 @@ const Profile = () => {
                     <div className="">
                         <ValuesCardHeader
                             color={colors.DodgerBlue}
-                            icon={<FontAwesomeIcon icon={faGraduationCap} size='lg' />}
+                            label={'Capacidades'}
+                            icon={<FontAwesomeIcon icon={faGraduationCap}
+                            size='lg' 
+                            />}
                         />
                         <div className="grid grid-cols-3 gap-y-4 gap-x-16 mt-4">
                             {cardsCapacities.map((card, index) => (
@@ -111,6 +114,8 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.DodgerBlue}
+                                    value={selectedState.dados[card.value]}
+                                    selectedRegion={selectedState}
                                 />
                             ))}
                         </div>
@@ -119,7 +124,9 @@ const Profile = () => {
                     <div className="">
                         <ValuesCardHeader
                             color={colors.Turquoise}
-                            icon={<FontAwesomeIcon icon={faFileLines} size='lg' />}
+                            label={'Resultados'}
+                            icon={<FontAwesomeIcon icon={faFileLines} size='lg' 
+                            />}
                         />
                         <div className="grid grid-cols-3 gap-4 mt-3">
                             {cardsResults.map((card, index) => (
@@ -128,6 +135,8 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.Turquoise}
+                                    value={selectedState.dados[card.value]}
+                                    selectedRegion={selectedState}
                                 />
                             ))}
                         </div>
@@ -143,7 +152,7 @@ const Profile = () => {
                                 fontWeight: 'bold',
                                 color: colors.MidnightBlue
                             }}
-                        >Alagoas</span>
+                        >{selectedState.nome}</span>
                         <div className="grid grid-cols-3 gap-y-4  m4-3">
                             {cardsGeneral.map((card, index) => (
                                 <ValuesCard
@@ -151,6 +160,8 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    value={selectedState.dados[card.value]}
+                                    selectedRegion={selectedState}
                                 />
                             ))}
                         </div>
