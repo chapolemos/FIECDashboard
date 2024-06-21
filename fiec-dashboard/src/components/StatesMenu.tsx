@@ -5,7 +5,7 @@ import { Checkbox, Radio } from '@mui/material';
 import { Estado, Regiao } from '../data/estadosDados';
 import StateRadio from './StateRadio';
 
-const StatesMenu = ({ label, color, backgroundColor, items, selectedStates, setSelectedStates }) => {
+const StatesMenu = ({ label, color, backgroundColor, regioes, selectedState, setSelectedState }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -47,8 +47,8 @@ const StatesMenu = ({ label, color, backgroundColor, items, selectedStates, setS
           ref={dropdownRef}
           className="absolute bg-white min-w-64 shadow-md max-h-64 rounded-lg mt-12 py-2 px-4 z-20 overflow-y-auto"
         >
-          { items?.map((regiao: Regiao) => (
-            <>
+          { regioes?.map((regiao: Regiao) => (
+            <div key={regiao.nome}>
               <label
                 className="flex flex-row items-center max-h-6 rounded my-2 cursor-pointer"
                 style={{
@@ -56,8 +56,8 @@ const StatesMenu = ({ label, color, backgroundColor, items, selectedStates, setS
                 }}
               >
                 <Radio
-                  checked={ regiao.nome === selectedStates.nome }
-                  onChange={()=> setSelectedStates(regiao)}
+                  checked={ regiao.nome === selectedState.nome }
+                  onChange={()=> setSelectedState(regiao)}
                 />
                 <span
                   style={{ color: color }}
@@ -66,11 +66,11 @@ const StatesMenu = ({ label, color, backgroundColor, items, selectedStates, setS
                 </span>
               </label>
               <StateRadio
-                selectedState={selectedStates}
-                setSelectedState={setSelectedStates}
+                selectedState={selectedState}
+                setSelectedState={setSelectedState}
                 regiao={regiao}
               />
-            </>
+            </div>
           ))} 
         </div>
       )

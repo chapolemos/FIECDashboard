@@ -2,34 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
 /*
-Gráfico de radar feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Perfil e Compare.
+Gráfico de radar feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Compare.
+Ele é utilizado pra comparar duas regiões diferentes.
 */
 
-
-/*
-export interface EstadoData {
-  indiceFIECInovacao: number;
-  indiceCapacidades: number;
-  investimentoPublicoCT: number;
-  capitalHumanoGraduacao: number;
-  capitalHumanoPosGraduacao: number;
-  insercaoMestresDoutores: number;
-  instituicoes: number;
-  infraestrutura: number;
-  cooperacao: number;
-  indiceResultados: number;
-  competitividadeGlobal: number;
-  intensidadeTecnologica: number;
-  propriedadeIntelectual: number;
-  producaoCientifica: number;
-  empreendedorismo: number;
-}
-
-interface SpiderChartProps {
-  data: EstadoData;
-}*/
-
-const SpiderChart = ({ data }) => {
+const SpiderChartCompare = ({ data1, data2 }) => {
   const chartRef = useRef(null);
   console.log("Spiders:",data)
   useEffect(() => {
@@ -119,4 +96,4 @@ const SpiderChart = ({ data }) => {
   );
 };
 
-export default SpiderChart;
+export default SpiderChartCompare;

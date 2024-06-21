@@ -10,7 +10,6 @@ import { SpiderChart } from '../components';
 import { mockEstados } from './Compare';
 import { regioes, Regiao, Estado } from '../data/estadosDados';
 import StatesMenu from '../components/StatesMenu';
-
 /* 
 Página de exibição dos índices de um estado/região escolhido em cards e gráfico de radar. 
 */
@@ -52,7 +51,7 @@ const iconMap = {
 };
 
 const Profile = () => {
-    const [selectedStates, setSelectedStates] = useState<Estado | Regiao>(regioes[0]);
+    const [selectedState, setSelectedState] = useState<Estado | Regiao>(regioes[0]);
     const { colors } = colorTheme;
 
     const cardsCapacities = [
@@ -89,11 +88,11 @@ const Profile = () => {
                 />
                 <StatesMenu
                     label="Estados"
-                    selectedStates={selectedStates}
-                    setSelectedStates={setSelectedStates}
+                    selectedState={selectedState}
+                    setSelectedState={setSelectedState}
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
-                    items={regioes}
+                    regioes={regioes}
                 />
 
             </Header>
@@ -156,7 +155,7 @@ const Profile = () => {
                             ))}
                         </div>
                         <div className='self-center'>
-                            <SpiderChart data={acreData} ></SpiderChart>
+                            <SpiderChart data={selectedState.dados} ></SpiderChart>
                         </div>
 
                     </div>

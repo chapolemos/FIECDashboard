@@ -78,16 +78,16 @@ const Compare = () => {
                 />
                 <StatesMenu
                     label="Selecione a primeira região"
-                    selectedStates={selectedState1}
-                    setSelectedStates={setSelectedState1}
+                    selectedState={selectedState1}
+                    setSelectedState={setSelectedState1}
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
                     items={regioes}
                 />
                 <StatesMenu
                     label="Selecione a segunda região"
-                    selectedStates={selectedState2}
-                    setSelectedStates={setSelectedState2}
+                    selectedState={selectedState2}
+                    setSelectedState={setSelectedState2}
                     color={colors.White}
                     backgroundColor={colors.Purple}
                     items={regioes}
