@@ -6,7 +6,8 @@ import { rankings } from '../data/estadosDados';
 Cards que contém os valores dos índices, exibidos nas páginas de Perfil e Compare.
 */
 
-const ValuesCard = ({icon, label, color, value, selectedRegion}) => {
+const ValuesCard = ({icon, label, color, index, value, selectedRegion}) => {
+  console.log(selectedRegion.nome, index)
   const { colors } = colorTheme;
   return (
     <div className="flex flex-col items-center ">
@@ -39,7 +40,7 @@ const ValuesCard = ({icon, label, color, value, selectedRegion}) => {
            style={{
            fontWeight: 'bold',
            }}
-         >09º</span>
+         >{rankings.getRanking(selectedRegion.nome,index)}º</span>
         </div>
         <div 
           className="rounded h-12 w-16 ml-1.5 mr-3 flex flex-col items-center justify-center"

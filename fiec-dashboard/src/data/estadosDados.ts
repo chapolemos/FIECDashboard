@@ -850,20 +850,14 @@ function makeRankings(regioes: Regiao[]) {
     });
 
     return {
-        getEstadoRanking(estadoNome: string, indice: string): number | null {
-            const rankingMap = estadoRankings.get(indice);
-            if (rankingMap && rankingMap.has(estadoNome)) {
-                return rankingMap.get(estadoNome) || null;
+        getRanking(nome: string, indice: string): number | null {
+            const rankings = regioes.some(r => r.nome === nome) ? regiaoRankings : estadoRankings;
+            const rankingMap = rankings.get(indice);
+            if (rankingMap && rankingMap.has(nome)) {
+                return rankingMap.get(nome) || null;
             }
             return null;
-        },
-        getRegiaoRanking(regiaoNome: string, indice: string): number | null {
-            const rankingMap = regiaoRankings.get(indice);
-            if (rankingMap && rankingMap.has(regiaoNome)) {
-                return rankingMap.get(regiaoNome) || null;
-            }
-            return null;
-        }
+        }, 
     };
 }
 

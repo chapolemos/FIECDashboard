@@ -116,6 +116,7 @@ const Compare = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    index={card.value}
                                     value={selectedState1.dados[card.value]}
                                     selectedRegion={selectedState1}
                                 />
@@ -136,6 +137,7 @@ const Compare = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    index={card.value}
                                     value={selectedState2.dados[card.value]}
                                     selectedRegion={selectedState2}
                                 />

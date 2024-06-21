@@ -114,6 +114,7 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.DodgerBlue}
+                                    index={card.value}
                                     value={selectedState.dados[card.value]}
                                     selectedRegion={selectedState}
                                 />
@@ -135,6 +136,7 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={colors.Turquoise}
+                                    index={card.value}
                                     value={selectedState.dados[card.value]}
                                     selectedRegion={selectedState}
                                 />
@@ -160,6 +162,7 @@ const Profile = () => {
                                     icon={<FontAwesomeIcon icon={card.icon} size='lg' />}
                                     label={card.label}
                                     color={card.color}
+                                    index={card.value}
                                     value={selectedState.dados[card.value]}
                                     selectedRegion={selectedState}
                                 />
