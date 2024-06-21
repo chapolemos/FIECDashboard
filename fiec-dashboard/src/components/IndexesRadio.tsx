@@ -17,7 +17,7 @@ export const IndexesRadio = ({ selectedIndex, setSelectedIndex }: IndexesRadioPr
     return (
         <>
             {indexes.map((index) => {
-                return (<div className='flex flex-row items-center'>
+                return (<div className='flex flex-row items-center' key={index.value}>
                     <label className="flex flex-row items-center max-h-6 w-full rounded my-2 cursor-pointer"
                     style={{
                         backgroundColor: colors.LightGray2
