@@ -1,6 +1,10 @@
 import React from 'react';
 import { colorTheme } from '../theme';
 
+/*
+Tabela de dados para exibir os índices da página de Compare.
+*/
+
 const TableComponent = ({data1, data2, mode}) => {
     const { colors } = colorTheme;
     return (

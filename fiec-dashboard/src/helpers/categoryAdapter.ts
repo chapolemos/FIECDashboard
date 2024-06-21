@@ -1,3 +1,7 @@
+/*
+Helper usado pra converter as chaves para a exibição das labels formatadas nos gráficos.
+*/ 
+
 enum CATEGORY_NAMES {
     indiceFIECInovacao = 'Índice FIEC de Inovação',
     indiceCapacidades = 'Índice de Capacidades',

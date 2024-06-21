@@ -5,6 +5,10 @@ import { Checkbox, Radio } from '@mui/material';
 import { Estado, Regiao } from '../data/estadosDados';
 import StateRadio from './StateRadio';
 
+/*
+Menu drop-down de radio buttons com sub-categorias para escolher estados e regiões nas telas de Perfil e Compare..
+*/
+
 const StatesMenu = ({ label, color, backgroundColor, regioes, selectedState, setSelectedState }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);

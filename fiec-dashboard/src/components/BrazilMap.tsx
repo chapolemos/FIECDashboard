@@ -4,6 +4,12 @@ import d3Tip from 'd3-tip';
 import brazilGeoJson from '../data/br.json';
 import './tooltip.css'; 
 
+/*
+Mapa coroplético feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Ranking.
+O mapa conta com tooltips em mouseOver e também seleção de regiões a terem os dados exibidos.
+*/
+
+
 const BrazilMap = ({ data, highlightedStates }) => {
   const mapRef = useRef(null);
   const tip = useRef(null);

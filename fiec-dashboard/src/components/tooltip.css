@@ -1,3 +1,6 @@
+/* 
+Arquivo css usado pra estilizar a tooltip dentro do brazilMap.
+*/
 .d3-tip {
     background: white;
     border: 1px solid #ccc;

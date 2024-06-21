@@ -5,6 +5,9 @@ import { Estado, Regiao, regioes } from '../data/estadosDados';
 import { useCallback } from 'react';
 import { colorTheme } from '../theme';
 
+/*
+Componente de Radio baseado no material-UI para construir o StatesMenu.
+*/
 interface StateRadioInterface {
   selectedState: Estado | Regiao;
   setSelectedState: (states: Estado | Regiao) => void;
