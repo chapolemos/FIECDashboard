@@ -4,6 +4,18 @@ Esse projeto é a reprodução de um dashboard disponibilizado em Power BI feito
 
 O projeto simula o pedido de um cliente para uma aplicação front-end feita para a exibição de dados do FIEC sobre diferentes estados e regiões do país. O objetivo é fazer uma versão web adaptada baseada no Power BI que exiba os dados corretamente e permita ao usuário visualizar as informações.
 
+## Como executar o projeto
+Navegue para a pasta da aplicação.
+```
+cd fiec-dashboard
+```
+
+Execute o comando utilizando o Docker.
+```
+docker compose up -d
+```
+A aplicação então ficará disponível na porta localhost:8080.
+
 ## Observações 
 Os arquivos de código possuem um bloco de comentários no início de cada um para explicar a função e o objetivo de cada arquivo com mais detalhes.
 
