@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Header, HeaderCard, RegionMenu, SpiderChart, ValuesCard } from '../components';
+import { Header, HeaderCard, RegionMenu, SpiderChartCompare, ValuesCard } from '../components';
 import { colorTheme } from '../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest, faEarthAmerica, faSliders, faRocket } from '@fortawesome/free-solid-svg-icons';
@@ -82,7 +82,7 @@ const Compare = () => {
                     setSelectedState={setSelectedState1}
                     color={colors.White}
                     backgroundColor={colors.DodgerBlue}
-                    items={regioes}
+                    regioes={regioes}
                 />
                 <StatesMenu
                     label="Selecione a segunda região"
@@ -90,7 +90,7 @@ const Compare = () => {
                     setSelectedState={setSelectedState2}
                     color={colors.White}
                     backgroundColor={colors.Purple}
-                    items={regioes}
+                    regioes={regioes}
                 />
             </Header>
             <div className="p-4 flex flex-1 -mt-4 flex-row justify-center">
@@ -139,7 +139,7 @@ const Compare = () => {
                         </div>
                     </div>
                     <div className='self-center'>
-                        <SpiderChart data={acreData}></SpiderChart>
+                        <SpiderChartCompare data1={selectedState1.dados} data2={selectedState2.dados}></SpiderChartCompare>
                     </div>
                     
                 </div>

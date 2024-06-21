@@ -8,7 +8,7 @@ Ele é utilizado pra comparar duas regiões diferentes.
 
 const SpiderChartCompare = ({ data1, data2 }) => {
   const chartRef = useRef(null);
-  console.log("Spiders:",data)
+
   useEffect(() => {
     d3.select(chartRef.current).select('svg').remove();
 
@@ -24,7 +24,7 @@ const SpiderChartCompare = ({ data1, data2 }) => {
       .append('g')
       .attr('transform', `translate(${(width + margin.left + margin.right) / 2},${(height + margin.top + margin.bottom) / 2})`);
 
-    const categories = Object.keys(data);
+    const categories = Object.keys(data1);
     const angleSlice = Math.PI * 2 / categories.length;
 
     const rScale = d3.scaleLinear()
@@ -80,16 +80,25 @@ const SpiderChartCompare = ({ data1, data2 }) => {
       .radius(d => rScale(d.value))
       .angle((d, i) => i * angleSlice);
 
-    const dataReady = categories.map((key, i) => ({ axis: key, value: data[key] }));
+    const dataReady1 = categories.map((key, i) => ({ axis: key, value: data1[key] }));
+    const dataReady2 = categories.map((key, i) => ({ axis: key, value: data2[key] }));
 
     svg.append('path')
-      .datum(dataReady)
+      .datum(dataReady1)
       .attr('d', radarLine)
       .style('stroke-width', '2px')
       .style('stroke', '#2f80ed')
       .style('fill', 'rgba(47, 128, 237, 0.1)')
       .style('fill-opacity', 0.7);
-  }, [data]);
+
+    svg.append('path')
+      .datum(dataReady2)
+      .attr('d', radarLine)
+      .style('stroke-width', '2px')
+      .style('stroke', '#eb4034')
+      .style('fill', 'rgba(235, 64, 52, 0.1)')
+      .style('fill-opacity', 0.7);
+  }, [data1, data2]);
 
   return (
     <div ref={chartRef} />
