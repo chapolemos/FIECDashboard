@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import { categoryNameAdapter } from '../helpers/categoryAdapter';
 
 /*
 Gráfico de radar feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Compare.
@@ -25,6 +26,7 @@ const SpiderChartCompare = ({ data1, data2 }) => {
       .attr('transform', `translate(${(width + margin.left + margin.right) / 2},${(height + margin.top + margin.bottom) / 2})`);
 
     const categories = Object.keys(data1);
+    const adaptedCategories = categoryNameAdapter(categories)
     const angleSlice = Math.PI * 2 / categories.length;
 
     const rScale = d3.scaleLinear()
@@ -52,7 +54,7 @@ const SpiderChartCompare = ({ data1, data2 }) => {
       .text(d => d.toString());
 
     const axis = svg.selectAll('.axis')
-      .data(categories)
+      .data(adaptedCategories)
       .enter()
       .append('g')
       .attr('class', 'axis');

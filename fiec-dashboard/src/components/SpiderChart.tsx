@@ -1,37 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import { categoryNameAdapter } from '../helpers/categoryAdapter';
 
 /*
 Gráfico de radar feito com a biblioteca d3.js que é alimentado pela massa de dados na tela de Perfil e Compare.
 */
 
-
-/*
-export interface EstadoData {
-  indiceFIECInovacao: number;
-  indiceCapacidades: number;
-  investimentoPublicoCT: number;
-  capitalHumanoGraduacao: number;
-  capitalHumanoPosGraduacao: number;
-  insercaoMestresDoutores: number;
-  instituicoes: number;
-  infraestrutura: number;
-  cooperacao: number;
-  indiceResultados: number;
-  competitividadeGlobal: number;
-  intensidadeTecnologica: number;
-  propriedadeIntelectual: number;
-  producaoCientifica: number;
-  empreendedorismo: number;
-}
-
-interface SpiderChartProps {
-  data: EstadoData;
-}*/
-
 const SpiderChart = ({ data }) => {
   const chartRef = useRef(null);
-  console.log("Spiders:",data)
   useEffect(() => {
     d3.select(chartRef.current).select('svg').remove();
 
@@ -48,6 +24,7 @@ const SpiderChart = ({ data }) => {
       .attr('transform', `translate(${(width + margin.left + margin.right) / 2},${(height + margin.top + margin.bottom) / 2})`);
 
     const categories = Object.keys(data);
+    const adaptedCategories = categoryNameAdapter(categories)
     const angleSlice = Math.PI * 2 / categories.length;
 
     const rScale = d3.scaleLinear()
@@ -75,7 +52,7 @@ const SpiderChart = ({ data }) => {
       .text(d => d.toString());
 
     const axis = svg.selectAll('.axis')
-      .data(categories)
+      .data(adaptedCategories)
       .enter()
       .append('g')
       .attr('class', 'axis');
